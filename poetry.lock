@@ -46,6 +46,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-bootstrap5"
+version = "23.3"
+description = "Bootstrap 5 for Django"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django_bootstrap5-23.3-py3-none-any.whl", hash = "sha256:ca1bb2f40175ed1c1725f52f249a574bf629b33b5a0af3bec0eab1de6d72836c"},
+    {file = "django_bootstrap5-23.3.tar.gz", hash = "sha256:21e1956a8a819370decc5d365ce4f4207761cb065afec5a7df8c4c8c49507f2e"},
+]
+
+[package.dependencies]
+django = ">=3.2"
+
+[[package]]
 name = "flake8"
 version = "6.1.0"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -60,6 +74,26 @@ files = [
 mccabe = ">=0.7.0,<0.8.0"
 pycodestyle = ">=2.11.0,<2.12.0"
 pyflakes = ">=3.1.0,<3.2.0"
+
+[[package]]
+name = "gunicorn"
+version = "21.2.0"
+description = "WSGI HTTP Server for UNIX"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "gunicorn-21.2.0-py3-none-any.whl", hash = "sha256:3213aa5e8c24949e792bcacfc176fef362e7aac80b76c56f6b5122bf350722f0"},
+    {file = "gunicorn-21.2.0.tar.gz", hash = "sha256:88ec8bff1d634f98e61b9f65bc4bf3cd918a90806c6f5c48bc5603849ec81033"},
+]
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
 
 [[package]]
 name = "iniconfig"
@@ -195,4 +229,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "be2db83e404447dd07ca6235d82d7e5baf6ba0fa47d5ff5356e743ed882d0583"
+content-hash = "ac75237ad708ebb3f0756c68c6a1a4b3896d97b96a5f83771e023ec74fea5bdf"

@@ -1,8 +1,5 @@
 MANAGE := poetry run python manage.py
-
-.PHONY: run
-run:
-	@poetry run python manage.py runserver
+PORT ?= 8080
 
 .PHONY: test
 test:
@@ -30,3 +27,11 @@ shell:
 .PHONY: lint
 lint:
 	@poetry run flake8 python_django_orm_blog
+
+.PHONY: dev
+dev:
+	@$(MANAGE) runserver
+
+.PHONY: start
+start:
+	@poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
