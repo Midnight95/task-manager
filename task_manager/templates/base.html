@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Менеджер задач</title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+  </head>
+ 
+<body class="text-bg-dark d-flex min-vh-100 flex-column">
+    {# -------- Header block -------- #}
+    {% include 'components/header.html' %}
+
+    <main class="flex-grow-1 mt-5">
+        {% block main %}{% endblock %}
+    </main>
+
+    {# -------- Footer block -------- #}
+    {% include 'components/footer.html' %}
+</body>
+</html>
