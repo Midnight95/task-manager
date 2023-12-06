@@ -13,7 +13,7 @@ import os
 
 from pathlib import Path
 from dotenv import load_dotenv
-
+from os.path import join
 
 load_dotenv()
 
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -109,10 +110,18 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
+LANGUAGES = (
+        ('en-us', 'English (US)'),
+        ('ru', 'Русский'),
+        )
+
+LOCALE_PATHS = [
+        join(BASE_DIR, 'task_manager', 'locale')
+        ]
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

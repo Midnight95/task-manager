@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block main %}
+  {% load i18n %}
     <div class="col-12 col-md-10 col-lg-8 mx-auto border rounded-3 p-5">
       <div class="text-center">
         <div class="display-4">おはよう!</div>
-          <p class="lead">Полноценный менеджер задач!</p>
+        <p class="lead">{% translate welcome_msg %}</p>
       </div>
     </div>
 {% endblock main %}
