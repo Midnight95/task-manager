@@ -3,6 +3,7 @@ from django.views import View
 from task_manager.user.models import User
 from task_manager.user.forms import UserCreationForm
 
+
 class UserListView(View):
 
     def get(self, request, *args, **kwargs):
@@ -15,4 +16,4 @@ class UserListView(View):
 
 
 class UserCreateView(View):
-    
+    pass

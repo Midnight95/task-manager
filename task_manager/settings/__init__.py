@@ -2,6 +2,6 @@ import os
 
 STAGE = os.environ.get('APP_STAGE', 'dev')
 if STAGE == 'prod':
-    from .production import *
+    from .prod import *
 else:
-    from .development import *
+    from .dev import *

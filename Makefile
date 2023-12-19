@@ -18,6 +18,7 @@ db-clean:
 
 .PHONY: migrate
 migrate:
+	@$(MANAGE) makemigrations
 	@$(MANAGE) migrate
 
 .PHONY: shell
