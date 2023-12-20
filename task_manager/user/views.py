@@ -29,4 +29,9 @@ class UserCreateView(View):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+        return '!'
 
+
+class UserEditView(View):
+    def get(self, request, *args, **kwargs):
+        pass
