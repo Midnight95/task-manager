@@ -1,53 +1,34 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.template import context
-from django.views import View
+from django.urls import reverse_lazy
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.user.models import User
 from task_manager.user.forms import UserForm
+from django.utils.translation import gettext as _
 
 
-class UserListView(View):
-
-    def get(self, request, *args, **kwargs):
-        users = User.objects.all()
-        return render(
-                request,
-                'user/index.html',
-                context={'users': users},
-                )
+class UserListView(ListView):
+    model = User
+    template_name = 'user/user_list.html'
+    context_object_name = 'users'
+    extra_context = {'title': _('User list')}
 
 
-class UserCreateView(View):
-    def get(self, request, *args, **kwargs):
-        form = UserForm()
-        return render(
-                request,
-                'user/user.html',
-                context={'form': form}
-                )
-
-    def post(self, request, *args, **kwargs):
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return
+class UserCreateView(CreateView):
+    form_class = UserForm 
+    template_name = 'user/user.html'
+    extra_context = {'title': _('Sign up')}
 
 
-class UserEditView(View):
-    def get(self, request, *args, **kwargs):
-        user_id = kwargs['pk']
-        user = User.objects.get(id=user_id)
-        form = UserForm(instance=user)
-        return render(
-                request,
-                'user/user.html',
-                context={'form': form, 'user': user},
-                )
+class UserUpdateView(UpdateView):
+    model = User
+    fields = '__all__'
+    template_name = 'user/user.html'
+    extra_context = {'title': _('Edit user data')}
+    success_url = reverse_lazy('user_list')
 
-    def post(self, request, *args, **kwargs):
-        user_id = kwargs.get('pk')
-        user = User.objects.get(id=user_id)
-        form = UserForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-        return redirect(reverse('user_list'))
+
+class UserDeleteView(DeleteView):
+    model = User
+    template_name = 'user/user.html'
+    success_url = reverse_lazy('user_list')
+

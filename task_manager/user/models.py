@@ -8,3 +8,6 @@ class User(AbstractUser):
     username = models.CharField(max_length=100, null=True, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.username
