@@ -14,21 +14,24 @@ class UserListView(ListView):
 
 
 class UserCreateView(CreateView):
-    form_class = UserForm 
-    template_name = 'user/user.html'
-    extra_context = {'title': _('Sign up')}
+    form_class = UserForm
+    template_name = 'user/user_form.html'
+    extra_context = {'title': _('Sign up'), 'button_text': _('Sign up')}
 
 
 class UserUpdateView(UpdateView):
     model = User
-    fields = '__all__'
-    template_name = 'user/user.html'
-    extra_context = {'title': _('Edit user data')}
+    form_class = UserForm
+    template_name = 'user/user_form.html'
+    extra_context = {'title': _('Update user data'), 'button_text': _('Save changes')}
     success_url = reverse_lazy('user_list')
 
 
 class UserDeleteView(DeleteView):
     model = User
-    template_name = 'user/user.html'
+    template_name = 'user/delete_user.html'
+    extra_context = {
+        'title': _('Delete user data'),
+        'button_text': _('Are you sure you want to?')
+    }
     success_url = reverse_lazy('user_list')
-
