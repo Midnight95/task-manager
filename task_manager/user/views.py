@@ -17,6 +17,7 @@ class UserCreateView(CreateView):
     form_class = UserForm
     template_name = 'user/user_form.html'
     extra_context = {'title': _('Sign up'), 'button_text': _('Sign up')}
+    success_url = reverse_lazy('home')
 
 
 class UserUpdateView(UpdateView):
