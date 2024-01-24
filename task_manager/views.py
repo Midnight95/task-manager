@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views import View
 from django.utils.translation import gettext as _
-from django.contrib.auth.views import LoginView
-from task_manager.user.models import User
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import AuthenticationForm
+
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
@@ -16,8 +17,12 @@ class IndexView(View):
 
 
 class UserLoginView(LoginView):
-    model =  User
+    form_class = AuthenticationForm
     template_name = 'user/user_form.html'
     redirect_authenticated_user = True
     next_page = reverse_lazy('home')
     extra_context = {'title': 'Sign in', 'button_text': 'Enter'}
+
+
+class UserLogoutView(LogoutView):
+    next_page = reverse_lazy('home')
