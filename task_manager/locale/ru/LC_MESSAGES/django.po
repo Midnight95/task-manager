@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-06 15:45+0300\n"
+"POT-Creation-Date: 2024-02-02 12:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: task_manager/templates/components/header.html:4
 msgid "Task manager"
 msgstr "Менеджер задач"
@@ -32,9 +33,48 @@ msgid "Sing in"
 msgstr "Вход"
 
 #: task_manager/templates/components/header.html:21
+#: task_manager/user/views.py:19
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/views.py:8
+#: task_manager/templates/components/header.html:25
+msgid "Logout"
+msgstr "Выход"
+
+#: task_manager/templates/user/user_list.html:11
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/user/user_list.html:12
+msgid "Full name"
+msgstr "Полное имя"
+
+#: task_manager/templates/user/user_list.html:13
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: task_manager/user/views.py:13
+#, fuzzy
+#| msgid "Users"
+msgid "User list"
+msgstr "Пользователи"
+
+#: task_manager/user/views.py:27
+msgid "Update user data"
+msgstr "Обновить"
+
+#: task_manager/user/views.py:27
+msgid "Save changes"
+msgstr "Сохранить"
+
+#: task_manager/user/views.py:35
+msgid "Delete user data"
+msgstr "Удалить пользователя"
+
+#: task_manager/user/views.py:36
+msgid "Are you sure you want to?"
+msgstr "Вы уверены?"
+
+#: task_manager/views.py:11
 msgid "Task manager! Enjoy!"
 msgstr "Менеджер задач!"
