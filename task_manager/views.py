@@ -1,19 +1,14 @@
 from django.shortcuts import render
-from django.views import View
 from django.utils.translation import gettext as _
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic.base import TemplateView
 
 
-class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        welcome_msg = _("Task manager! Enjoy!")
-        return render(
-            request,
-            "index.html",
-            context = {"welcome_msg": welcome_msg},
-        )
+class IndexView(TemplateView):
+    template_name = 'index.html'
+    extra_context = {'title': _('Task Manager')}
 
 
 class UserLoginView(LoginView):
