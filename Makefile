@@ -39,4 +39,4 @@ start:
 
 .PHONY: test
 test:
-	@$(MANAGE) test
+	@$(MANAGE) test -v 2
