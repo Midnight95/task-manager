@@ -68,6 +68,6 @@ class TestUser(TestCase):
         response = self.client.get(reverse_lazy('home'))
         self.assertContains(response, 'logout')
 
-        response = self.client.post(reverse_lazy('logout'), True)
+        response = self.client.post(reverse_lazy('logout'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, 'logout')
