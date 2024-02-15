@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.user.models import User
 from task_manager.user.forms import UserForm
 from django.utils.translation import gettext as _
+from django.contrib.auth.mixins import LoginRequiredMixin
+from task_manager.myxini import PermissionCheckMixin
 
 
 class UserListView(ListView):
@@ -20,7 +22,7 @@ class UserCreateView(CreateView):
     success_url = reverse_lazy('login')
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(UpdateView, LoginRequiredMixin, PermissionCheckMixin):
     model = User
     form_class = UserForm
     template_name = 'user/user_form.html'
@@ -28,7 +30,7 @@ class UserUpdateView(UpdateView):
     success_url = reverse_lazy('user_list')
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(DeleteView, LoginRequiredMixin, PermissionCheckMixin):
     model = User
     template_name = 'user/delete_user.html'
     extra_context = {
