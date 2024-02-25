@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 12:33+0300\n"
+"POT-Creation-Date: 2024-02-25 23:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgid "Sing in"
 msgstr "Вход"
 
 #: task_manager/templates/components/header.html:21
-#: task_manager/user/views.py:19
+#: task_manager/user/views.py:35
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -53,28 +53,61 @@ msgstr "Полное имя"
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: task_manager/user/views.py:13
+#: task_manager/templates/user/user_list.html:25
+msgid "Update"
+msgstr "Обновить"
+
+#: task_manager/templates/user/user_list.html:27
+msgid "Delete"
+msgstr "Удалить"
+
+#: task_manager/user/views.py:16
+msgid "You can't chage other user!"
+msgstr "Нельзя изменять другого пользователя!"
+
+#: task_manager/user/views.py:29
 #, fuzzy
 #| msgid "Users"
 msgid "User list"
 msgstr "Пользователи"
 
-#: task_manager/user/views.py:27
+#: task_manager/user/views.py:36
+msgid "User created successfully"
+msgstr "Пользователь успешно создан"
+
+#: task_manager/user/views.py:44
 msgid "Update user data"
 msgstr "Обновить"
 
-#: task_manager/user/views.py:27
+#: task_manager/user/views.py:44
 msgid "Save changes"
 msgstr "Сохранить"
 
-#: task_manager/user/views.py:35
+#: task_manager/user/views.py:45
+msgid "User updated successfully"
+msgstr "Пользователь обновлен"
+
+#: task_manager/user/views.py:53
 msgid "Delete user data"
 msgstr "Удалить пользователя"
 
-#: task_manager/user/views.py:36
+#: task_manager/user/views.py:54
 msgid "Are you sure you want to?"
 msgstr "Вы уверены?"
 
-#: task_manager/views.py:11
-msgid "Task manager! Enjoy!"
-msgstr "Менеджер задач!"
+#: task_manager/views.py:12
+#, fuzzy
+#| msgid "Task manager"
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: task_manager/views.py:21
+msgid "You have logged in!"
+msgstr "Вы залогинены"
+
+#: task_manager/views.py:28
+msgid "You are logged out."
+msgstr "Вы разлогинены"
+
+#~ msgid "Task manager! Enjoy!"
+#~ msgstr "Менеджер задач!"
