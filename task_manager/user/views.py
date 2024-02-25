@@ -13,7 +13,7 @@ from django.shortcuts import redirect
 class UserPermissionMixin(UserPassesTestMixin):
     def test_func(self):
         if self.request.user != self.get_object():
-            self.permission_denied_message = _('You cannot change not yourself! Please sign in.')
+            self.permission_denied_message = _('You can\'t chage other user!')
             return False
         return True
 

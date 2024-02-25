@@ -27,7 +27,7 @@ shell:
 
 .PHONY: lint
 lint:
-	@poetry run flake8 python_django_orm_blog
+	@poetry run ruff check task_manager/
 
 .PHONY: dev
 dev:
