@@ -4,8 +4,22 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.user.models import User
 from task_manager.user.forms import UserForm
 from django.utils.translation import gettext as _
-from django.contrib.auth.mixins import LoginRequiredMixin
-from task_manager.myxini import PermissionCheckMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
+from django.shortcuts import redirect
+
+
+class UserPermissionMixin(UserPassesTestMixin):
+    def test_func(self):
+        if self.request.user != self.get_object():
+            self.permission_denied_message = _('You cannot change not yourself! Please sign in.')
+            return False
+        return True
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.get_permission_denied_message())
+        return redirect(reverse_lazy('home'))
 
 
 class UserListView(ListView):
@@ -15,22 +29,24 @@ class UserListView(ListView):
     extra_context = {'title': _('User list')}
 
 
-class UserCreateView(CreateView):
+class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserForm
     template_name = 'user/user_form.html'
     extra_context = {'title': _('Sign up'), 'button_text': _('Sign up')}
+    success_message = _('User created successfully')
     success_url = reverse_lazy('login')
 
 
-class UserUpdateView(UpdateView, LoginRequiredMixin, PermissionCheckMixin):
+class UserUpdateView(UserPermissionMixin, UpdateView, SuccessMessageMixin):
     model = User
     form_class = UserForm
     template_name = 'user/user_form.html'
     extra_context = {'title': _('Update user data'), 'button_text': _('Save changes')}
+    success_message = _('User updated successfully')
     success_url = reverse_lazy('user_list')
 
 
-class UserDeleteView(DeleteView, LoginRequiredMixin, PermissionCheckMixin):
+class UserDeleteView(UserPermissionMixin, DeleteView):
     model = User
     template_name = 'user/delete_user.html'
     extra_context = {

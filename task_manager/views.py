@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.base import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 class IndexView(TemplateView):
@@ -22,3 +23,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('home')
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, _('You are logged out.'))
+        return super().dispatch(request, *args, **kwargs)

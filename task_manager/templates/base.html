@@ -13,6 +13,7 @@
     {% include 'components/header.html' %}
 
     <main class="flex-grow-1 mt-5">
+        {% bootstrap_messages %}
         {% block main %}{% endblock %}
     </main>
 
