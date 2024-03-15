@@ -32,7 +32,7 @@ class TestUserCreation(TestCase):
     def test_user_creation_url(self):
         response = self.client.get(reverse_lazy('user_create'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='user/user_form.html')
+        self.assertTemplateUsed(response, template_name='forms/form.html')
 
     def test_user_creation(self):
         response = self.client.post(
@@ -54,7 +54,7 @@ class TestUser(TestCase):
     def test_user_login_url(self):
         response = self.client.get(reverse_lazy('login'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='user/user_form.html')
+        self.assertTemplateUsed(response, template_name='forms/form.html')
 
     def test_login(self):
         response = self.client.post(
