@@ -9,7 +9,7 @@ class TestStatusIndx(TestCase):
     def test_status_page(self):
         response = self.client.get(reverse_lazy('status_list'))
         self.assertEqual(response.status_code, 200)
-        self.assertTempateUsed(response, tempate_name='status/statuses.html')
+        self.assertTemplateUsed(response, tempate_name='status/statuses.html')
 
 
 class TestStatusCRUD(TestCase):
