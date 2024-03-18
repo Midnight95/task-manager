@@ -22,24 +22,26 @@ class TestStatusCRUD(TestCase):
         self.client.force_login(self.user)
 
         self.status_data = {'name': '1st'}
+        Status.objects.create(**self.status_data)
 
-    def test_status_creation_deletion(self):
+    def test_status_creation(self):
         response = self.client.post(
                 reverse_lazy('status_create'),
                 data=self.status_data
                 )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('statuses'))
+        self.assertEqual(len(Status.objects.all()), 2)
 
+    def test_status_deletion(self):
         response = self.client.post(
                 reverse_lazy('status_delete', kwargs={'pk': 1})
                 )
-
+        self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('statuses'))
         self.assertEqual(len(Status.objects.all()), 0)
 
     def test_status_update(self):
-        Status.objects.create(**self.status_data)
         response = self.client.post(
                 reverse_lazy('status_update', kwargs={'pk': 1}),
                 data={'name': 'updated'},

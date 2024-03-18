@@ -2,7 +2,7 @@ from task_manager.status.models import Status
 from django import forms
 
 
-class UserForm(forms.Form):
+class StatusForm(forms.Form):
     name = forms.CharField(max_length=100)
 
     class Meta:
