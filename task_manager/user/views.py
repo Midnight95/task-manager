@@ -25,8 +25,8 @@ class UserPermissionMixin(UserPassesTestMixin):
 class UserListView(ListView):
     model = User
     template_name = 'user/user_list.html'
-    context_object_name = 'users' # это тут нужно?
-    extra_context = {'title': _('User list')}
+    context_object_name = 'users' 
+    extra_context = {'title': _('Users')}
 
 
 class UserCreateView(SuccessMessageMixin, CreateView):
