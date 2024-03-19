@@ -40,5 +40,5 @@ class StatusUpdateView(SuccessMessageMixin, UpdateView):
 class StatusDeleteView(SuccessMessageMixin, DeleteView):
     model = Status
     template_name = 'forms/delete.form'
-    success_message = 'User deleted successfully'
+    success_message = _('Status deleted successfully')
     success_url = reverse_lazy('status_list')
