@@ -13,18 +13,21 @@
 
             </ul>
             <ul class="navbar-nav">
-
+              {% if not user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "login" %}">{% translate "Sing in" %}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "user_create" %}">{% translate "Sign up" %}</a>
                 </li>
-                {% if user.is_authenticated %}
+              {% else %}
                 <li>
+                    <a class="nav-link" href="{% url "status_list" %}">{% translate "Statuses" %}</a>
+                </li>
+                <li class="ms-auto">
                     <a class="nav-link" href="{% url "logout" %}">{% translate "Logout" %}</a>
                 </li>
-                {% endif %}
+              {% endif %}
 
 
             </ul>
