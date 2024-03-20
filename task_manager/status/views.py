@@ -1,7 +1,6 @@
 from task_manager.status.models import Status
 from task_manager.status.forms import StatusForm
 from django.urls import reverse_lazy
-from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.utils.translation import gettext as _
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
