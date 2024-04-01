@@ -14,6 +14,13 @@ class TaskListView(ListView):
     extra_context = {'title': _('Task list')}
 
 
+class TaskView(DeleteView):
+    model = Task
+    template_name = 'task/task_detail.html'
+    context_object_name = 'task'
+    extra_context = {'title': _('Task view')}
+
+
 class TaskCreateView(SuccessMessageMixin, CreateView):
     form_class = TaskForm
     template_name = 'forms/form.html'
@@ -42,6 +49,10 @@ class TaskUpdateView(SuccessMessageMixin, UpdateView):
 
 class TaskDeleteView(SuccessMessageMixin, DeleteView):
     model = Task
-    template_name = 'forms/delete.form'
+    template_name = 'forms/delete.html'
     success_message = _('Task deleted successfully')
+    extra_context = {
+        'title': _('Delete task'),
+        'button_text': _('Delete')
+    }
     success_url = reverse_lazy('task_list')
