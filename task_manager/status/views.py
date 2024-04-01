@@ -40,4 +40,8 @@ class StatusDeleteView(SuccessMessageMixin, DeleteView):
     model = Status
     template_name = 'forms/delete.form'
     success_message = _('Status deleted successfully')
+    extra_context = {
+            'title': _('Delete status'),
+            'button_text': _('Delete status'),
+            }
     success_url = reverse_lazy('status_list')

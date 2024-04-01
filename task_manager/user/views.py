@@ -25,7 +25,7 @@ class UserPermissionMixin(UserPassesTestMixin):
 class UserListView(ListView):
     model = User
     template_name = 'user/user_list.html'
-    context_object_name = 'users' 
+    context_object_name = 'users'
     extra_context = {'title': _('Users')}
 
 
@@ -57,6 +57,6 @@ class UserDeleteView(UserPermissionMixin, DeleteView):
     template_name = 'forms/delete.html'
     extra_context = {
         'title': _('Delete user data'),
-        'button_text': _('Are you sure you want to?')
+        'button_text': _('Delete user')
     }
     success_url = reverse_lazy('user_list')
