@@ -3,6 +3,7 @@
   {% load i18n django_bootstrap5 %}
     <div class="container col-12 col-md-10 col-lg-8 mx-auto">
     <p class="h1">{{ title }}</p>
+    <p>{% translate "Are you sure you want to delete" %} {{ object }}?</p>
       <form method="post">
         {% csrf_token %}
         {% bootstrap_button button_class="btn btn-danger" button_type="submit" content=button_text %}
