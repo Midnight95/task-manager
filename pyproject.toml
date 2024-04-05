@@ -20,11 +20,8 @@ django-extensions = "^3.2.3"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
 ipython = "^8.18.1"
-ruff = "^0.2.2"
+flake8 = "^7.0.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.ruff]
-line-length = 79

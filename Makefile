@@ -27,7 +27,7 @@ shell:
 
 .PHONY: lint
 lint:
-	@poetry run ruff check task_manager/
+	@poetry run flake8 task_manager/
 
 .PHONY: dev
 dev:
