@@ -12,19 +12,19 @@ class TestTaskCRUD(TestCase):
         }
         self.user = User.objects.create_user(**self.user_credentials)
         self.client.force_login(self.user)
-        self.task_data = {'name': '1st'}
-        self.task_data_2 = {'name': '2nd'}
+        self.task_data = {'name': '1st', 'executor': 'login_user'}
+        self.task_data_2 = {'name': '2nd', 'executor': 'login_user'}
 
     def test_task_authorized(self):
         response = self.client.get(reverse_lazy('task_list'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='status/status_list.html')
+        self.assertTemplateUsed(response, template_name='task/task_list.html')
 
     def test_task_unathorized(self):
         self.client.logout()
         response = self.client.get(reverse_lazy('task_list'))
         self.assertNotEqual(response.status_code, 302)
-        self.assertRedirects(reverse_lazy('home'))
+        self.assertRedirects(response, reverse_lazy('home'))
 
     def test_task_creation(self):
         response = self.client.post(
