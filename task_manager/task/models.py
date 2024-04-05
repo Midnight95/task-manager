@@ -15,13 +15,13 @@ class Task(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        related_name = 'author'
+        related_name='author'
         )
-    
+
     executor = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        related_name = 'executor'
+        related_name='executor'
         )
 
     created_at = models.DateTimeField(auto_now_add=True)

@@ -1,4 +1,4 @@
-from task_manager.task.models import Task 
+from task_manager.task.models import Task
 from task_manager.task.forms import TaskForm
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
