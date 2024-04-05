@@ -2,6 +2,6 @@ import os
 
 STAGE = os.environ.get('APP_STAGE', 'dev')
 if STAGE == 'prod':
-    from .prod import *  #noqa F403
+    from .prod import  *
 else:
-    from .dev import *  #noqa F403
+    from .dev import *
