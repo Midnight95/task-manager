@@ -20,7 +20,9 @@ class TestStatusCRUD(TestCase):
     def test_status_page(self):
         response = self.client.get(reverse_lazy('status_list'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='status/status_list.html')
+        self.assertTemplateUsed(
+                response, template_name='status/status_list.html'
+                )
 
     def test_status_creation(self):
         response = self.client.post(
@@ -47,4 +49,3 @@ class TestStatusCRUD(TestCase):
                 )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'updated')
-
