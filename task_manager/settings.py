@@ -128,6 +128,8 @@ LOCALE_PATHS = [
         join(BASE_DIR, 'task_manager', 'locale')
         ]
 
+FIXTURE_DIRS = ['task_manager/fixtures/']
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Moscow'

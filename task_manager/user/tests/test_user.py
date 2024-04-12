@@ -19,7 +19,10 @@ class TestIndex(TestCase):
 
 
 class TestUserCreation(TestCase):
+    fixtures = ['user.json']
+
     def setUp(self):
+
         self.data = {
             'email': 'test@email.com',
             'first_name': 'User',
