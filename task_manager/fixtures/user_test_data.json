@@ -1,0 +1,49 @@
+[
+    {
+        "create": {
+            "valid": {
+                "email": "useremail@usermail.com",
+                "first_name": "Joseph",
+                "last_name": "Stalin",
+                "username": "Koba",
+                "password1": "superdupersecurepassword",
+                "password2": "superdupersecurepassword"
+            },
+            "invalid_unique_email": {
+                "email": "user1email@email.com",
+                "first_name": "somefirstname",
+                "last_name": "somelastname",
+                "username": "somerandomusername",
+                "password1": "superdupersecurepassword",
+                "password2": "superdupersecurepassword"
+            },
+            "invalid_unique_username": {
+                "email": "somenotusedyetemail@mail.com",
+                "first_name": "Ooga",
+                "last_name": "Booga",
+                "username": "user1",
+                "password1": "strongpassword",
+                "password2": "strongpassword"
+            }
+        },
+        "read": {
+            "login": {
+                "username": "Koba",
+                "password": "superdupersecurepassword"
+            },
+            "invalid_login": {
+                "username": "Hoba",
+                "password": "password"
+            }
+
+        },
+        "update": {
+            "email": "newuseremail@usermail.com",
+            "first_name": "Joseph",
+            "last_name": "Stalin",
+            "username": "Koba",
+            "password1": "superdupersecurepassword",
+            "password2": "superdupersecurepassword"
+        }
+    }
+]
