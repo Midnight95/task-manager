@@ -1,37 +1,44 @@
-from django.test import TestCase
 from django.urls import reverse_lazy
 from task_manager.user.models import User
+from .user_setup import UserTestCase
 
 
-class TestUserCreation(TestCase):
-    fixtures = ['user.json']
-
-    def setUp(self):
-
-        self.data = {
-            'email': 'test@email.com',
-            'first_name': 'User',
-            'last_name': 'Uservocich',
-            'username': 'user',
-            'password1': 'jgoi34^@dFF',
-            'password2': 'jgoi34^@dFF'
-            }
-
+class TestUserCreation(UserTestCase):
     def test_user_creation_url(self):
         response = self.client.get(reverse_lazy('user_create'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, template_name='forms/form.html')
 
-    def test_user_creation(self):
+    def test_valid_user_creation(self):
+        data = self.test_data['create']['valid']
         response = self.client.post(
-                reverse_lazy('user_create'), data=self.data
+                reverse_lazy('user_create'), data=data
                 )
         self.assertRedirects(response, expected_url=reverse_lazy('login'))
-        user = User.objects.get(username="user")
+        self.assertEqual(response.status_code, 302)
+        user = User.objects.get(username=data['username'])
         self.assertTrue(user.is_active)
 
+    def test_non_unique_email(self):
+        data = self.test_data['create']['invalid_email']
+        response = self.client.post(
+                reverse_lazy('user_create'), data=data
+                )
+        self.assertEqual(response.status_code, 200)
+        with self.assertRaises(User.DoesNotExist):
+            User.objects.get(username=data['username'])
 
-class TestUser(TestCase):
+    def test_non_unique_username(self):
+        data = self.test_data['create']['invalid_username']
+        response = self.client.post(
+                reverse_lazy('user_create'), data=data
+                )
+        self.assertEqual(response.status_code, 200)
+        with self.assertRaises(User.DoesNotExist):
+            User.objects.get(username=data['username'])
+
+
+class TestUserReading(UserTestCase):
     def setUp(self):
         self.user_credentials = {
             'username': 'login_user',

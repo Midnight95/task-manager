@@ -1,6 +1,4 @@
 from django.test import TestCase
-from django.urls import reverse_lazy
-from task_manager.user.models import User
 import json
 
 
