@@ -27,6 +27,9 @@
     },
     "read": {
         "login": {
+            "email": "useremail@usermail.com",
+            "first_name": "Joseph",
+            "last_name": "Stalin",
             "username": "Koba",
             "password": "superdupersecurepassword"
         },
