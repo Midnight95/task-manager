@@ -16,14 +16,22 @@ class TestStatusCRUD(StatusTestCase):
                 response, template_name='status/status_list.html'
                 )
 
+    def test_status_page_unlogged(self):
+        self.client.logout()
+
+        response = self.client.get(reverse_lazy('status_list'))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('home'))
+
     def test_status_creation(self):
+        data = self.status_data['valid']
         response = self.client.post(
                 reverse_lazy('status_create'),
-                data=self.status_data_2,
+                data=data,
                 )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('status_list'))
-        self.assertEqual(len(Status.objects.all()), 2)
+        self.assertEqual(len(Status.objects.all()), 5)
 
     def test_status_deletion(self):
         response = self.client.post(
@@ -34,9 +42,10 @@ class TestStatusCRUD(StatusTestCase):
         self.assertEqual(len(Status.objects.all()), 3)
 
     def test_status_update(self):
+        data = self.status_data['valid']
         response = self.client.post(
                 reverse_lazy('status_update', kwargs={'pk': 1}),
-                data={'name': 'updated'},
+                data=data,
                 follow=True
                 )
         self.assertEqual(response.status_code, 200)
