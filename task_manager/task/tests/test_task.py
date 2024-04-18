@@ -1,19 +1,13 @@
-from django.test import TestCase
 from django.urls import reverse_lazy
 from task_manager.user.models import User
 from task_manager.task.models import Task
+from .task_setup import TaskTestCase
 
 
-class TestTaskCRUD(TestCase):
+class TestTaskCRUD(TaskTestCase):
     def setUp(self):
-        self.user_credentials = {
-            'username': 'login_user',
-            'password': 'lup@ssW@rd'
-        }
-        self.user = User.objects.create_user(**self.user_credentials)
+        self.user = User.objects.get(pk=1)
         self.client.force_login(self.user)
-        self.task_data = {'name': '1st', 'executor': 'login_user'}
-        self.task_data_2 = {'name': '2nd', 'executor': 'login_user'}
 
     def test_task_authorized(self):
         response = self.client.get(reverse_lazy('task_list'))
