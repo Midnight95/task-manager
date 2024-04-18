@@ -5,23 +5,24 @@ from django.views.generic.list import ListView
 from django.utils.translation import gettext as _
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.myxini import LoginCheckMixin
 
 
-class TaskListView(ListView):
+class TaskListView(LoginCheckMixin, ListView):
     model = Task
     template_name = 'task/task_list.html'
     context_object_name = 'tasks'
     extra_context = {'title': _('Task list')}
 
 
-class TaskView(DeleteView):
+class TaskView(LoginCheckMixin, DeleteView):
     model = Task
     template_name = 'task/task_detail.html'
     context_object_name = 'task'
     extra_context = {'title': _('Task view')}
 
 
-class TaskCreateView(SuccessMessageMixin, CreateView):
+class TaskCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
     form_class = TaskForm
     template_name = 'forms/form.html'
     extra_context = {
@@ -35,7 +36,7 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
-class TaskUpdateView(SuccessMessageMixin, UpdateView):
+class TaskUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
     template_name = 'forms/form.html'
@@ -47,7 +48,7 @@ class TaskUpdateView(SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('task_list')
 
 
-class TaskDeleteView(SuccessMessageMixin, DeleteView):
+class TaskDeleteView(LoginCheckMixin, SuccessMessageMixin, DeleteView):
     model = Task
     template_name = 'forms/delete.html'
     success_message = _('Task deleted successfully')
