@@ -22,6 +22,7 @@ class StatusCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
         'title': _('Create status'),
         'button_text': _('Create')
         }
+    success_message = _('Status created successfully')
     success_url = reverse_lazy('status_list')
 
 
