@@ -5,16 +5,17 @@ from django.views.generic.list import ListView
 from django.utils.translation import gettext as _
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.myxini import LoginCheckMixin
 
 
-class StatusListView(ListView):
+class StatusListView(LoginCheckMixin, ListView):
     model = Status
     template_name = 'status/status_list.html'
     context_object_name = 'statuses'
     extra_context = {'title': _('Statuses')}
 
 
-class StatusCreateView(SuccessMessageMixin, CreateView):
+class StatusCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
     form_class = StatusForm
     template_name = 'forms/form.html'
     extra_context = {
@@ -24,7 +25,8 @@ class StatusCreateView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('status_list')
 
 
-class StatusUpdateView(SuccessMessageMixin, UpdateView):
+
+class StatusUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
     model = Status
     form_class = StatusForm
     template_name = 'forms/form.html'
@@ -36,7 +38,7 @@ class StatusUpdateView(SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('status_list')
 
 
-class StatusDeleteView(SuccessMessageMixin, DeleteView):
+class StatusDeleteView(LoginCheckMixin, SuccessMessageMixin, DeleteView):
     model = Status
     template_name = 'forms/delete.form'
     success_message = _('Status deleted successfully')
