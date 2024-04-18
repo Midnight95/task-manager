@@ -21,13 +21,28 @@ class TestTaskCRUD(TaskTestCase):
         self.assertRedirects(response, reverse_lazy('home'))
 
     def test_task_creation(self):
+        data = self.task_test_data['valid']
         response = self.client.post(
                 reverse_lazy('task_create'),
-                data=self.task_data_2,
+                data=data,
                 )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('status_list'))
-        self.assertEqual(len(Task.objects.all()), 2)
+        self.assertEqual(len(Task.objects.all()), 4)
+
+    def test_task_creation_unautorized(self):
+        self.client.logout()
+        data = self.task_test_data['valid']
+        response = self.client.post(
+                reverse_lazy('task_create'),
+                data=data,
+                )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('home'))
+        self.assertEqual(len(Task.objects.all()), 3)
+
+    def test_task_creation_empy_name(self):
+        pass
 
     def test_task_deletion(self):
         response = self.client.post(
