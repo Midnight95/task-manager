@@ -41,7 +41,7 @@ class StatusUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
 
 class StatusDeleteView(LoginCheckMixin, SuccessMessageMixin, DeleteView):
     model = Status
-    template_name = 'forms/delete.form'
+    template_name = 'forms/delete.html'
     success_message = _('Status deleted successfully')
     extra_context = {
             'title': _('Delete status'),
