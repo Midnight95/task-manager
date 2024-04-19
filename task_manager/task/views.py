@@ -6,6 +6,21 @@ from django.utils.translation import gettext as _
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from task_manager.myxini import LoginCheckMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib import messages
+from django.shortcuts import redirect
+
+
+class TaskPermissionMixin(UserPassesTestMixin):
+    def test_func(self):
+        if self.request.user.pk != self.get_object().author:
+            self.permission_denied_message = _('Only author can delete task!')
+            return False
+        return True
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.get_permission_denied_message())
+        return redirect(reverse_lazy('task_list'))
 
 
 class TaskListView(LoginCheckMixin, ListView):
@@ -48,7 +63,9 @@ class TaskUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('task_list')
 
 
-class TaskDeleteView(LoginCheckMixin, SuccessMessageMixin, DeleteView):
+class TaskDeleteView(
+        TaskPermissionMixin, LoginCheckMixin, SuccessMessageMixin, DeleteView
+        ):
     model = Task
     template_name = 'forms/delete.html'
     success_message = _('Task deleted successfully')
