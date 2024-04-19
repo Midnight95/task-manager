@@ -20,11 +20,12 @@ class LoginCheckMixin(LoginRequiredMixin):
 class DeletionProtectionMixin:
 
     protected_message = None
-    protected_url = reverse_lazy('home')
+    protected_url = None
 
     def dispatch(self, request, *args, **kwargs):
         try:
-            super().dispatch(request, *args, **kwargs)
+            response = super().dispatch(request, *args, **kwargs)
+            return response
         except ProtectedError:
             messages.error(request, self.protected_message)
             return redirect(self.protected_url)
