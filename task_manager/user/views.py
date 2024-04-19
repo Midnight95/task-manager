@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.shortcuts import redirect
+from task_manager.myxini import DeletionProtectionMixin
 
 
 class UserPermissionMixin(UserPassesTestMixin):
@@ -52,7 +53,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView, SuccessMessageMixin):
     success_url = reverse_lazy('user_list')
 
 
-class UserDeleteView(UserPermissionMixin, DeleteView):
+class UserDeleteView(DeletionProtectionMixin, UserPermissionMixin, DeleteView):
     model = User
     template_name = 'forms/delete.html'
     extra_context = {
@@ -60,3 +61,6 @@ class UserDeleteView(UserPermissionMixin, DeleteView):
         'button_text': _('Delete user')
     }
     success_url = reverse_lazy('user_list')
+
+    protected_message = _('Looks like this user has some unfinished tasks')
+    protected_url = reverse_lazy('user_list')
