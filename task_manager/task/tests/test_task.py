@@ -17,7 +17,7 @@ class TestTaskCRUD(TaskTestCase):
     def test_task_unathorized(self):
         self.client.logout()
         response = self.client.get(reverse_lazy('task_list'))
-        self.assertNotEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('home'))
 
     def test_task_creation(self):
@@ -27,7 +27,7 @@ class TestTaskCRUD(TaskTestCase):
                 data=data,
                 )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('status_list'))
+        self.assertRedirects(response, reverse_lazy('task_list'))
         self.assertEqual(len(Task.objects.all()), 4)
 
     def test_task_creation_unautorized(self):
@@ -41,22 +41,30 @@ class TestTaskCRUD(TaskTestCase):
         self.assertRedirects(response, reverse_lazy('home'))
         self.assertEqual(len(Task.objects.all()), 3)
 
-    def test_task_creation_empy_name(self):
-        pass
-
-    def test_task_deletion(self):
+    def test_task_creation_non_unique(self):
+        data = self.task_test_data['invalid_non_unique']
         response = self.client.post(
-                reverse_lazy('task_delete', kwargs={'pk': 1})
+                reverse_lazy('task_create'),
+                data=data,
                 )
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('task_list'))
-        self.assertEqual(len(Task.objects.all()), 0)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(Task.objects.all()), 3)
+
+    def test_task_creation_empy_name(self):
+        data = self.task_test_data['invalid_empty_name']
+        response = self.client.post(
+                reverse_lazy('task_create'),
+                data=data,
+                )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(Task.objects.all()), 3)
 
     def test_task_update(self):
+        data = self.task_test_data['valid']
         response = self.client.post(
                 reverse_lazy('task_update', kwargs={'pk': 1}),
-                data={'name': 'updated'},
+                data=data,
                 follow=True
                 )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'updated')
+        self.assertContains(response, data['name'])
