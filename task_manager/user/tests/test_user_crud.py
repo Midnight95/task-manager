@@ -38,7 +38,7 @@ class TestUserCreation(UserTestCase):
             User.objects.get(username=data['email'])
 
 
-class TestUserReading(UserTestCase):
+class TestUserRead(UserTestCase):
     def setUp(self):
         self.user = User.objects.create_user(**self.test_data['read']['login'])
 
@@ -96,7 +96,6 @@ class TestUserUpdate(UserTestCase):
 
         response = self.client.get(reverse_lazy('user_list'))
         self.assertContains(response, data['username'])
-
 
     def test_update_wrong_user(self):
         user = User.objects.get(pk=1)
