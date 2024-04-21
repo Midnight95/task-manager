@@ -13,7 +13,7 @@ from django.shortcuts import redirect
 
 class TaskPermissionMixin(UserPassesTestMixin):
     def test_func(self):
-        if self.request.user.pk != self.get_object().author:
+        if self.request.user != self.get_object().author:
             self.permission_denied_message = _('Only author can delete task!')
             return False
         return True
