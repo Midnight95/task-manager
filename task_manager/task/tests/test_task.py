@@ -68,3 +68,11 @@ class TestTaskCRUD(TaskTestCase):
                 )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, data['name'])
+
+    def test_task_deletion(self):
+        response = self.client.post(
+                reverse_lazy('task_delete', kwargs={'pk': 1})
+                )
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('task_list'))
+        self.assertEqual(len(Task.objects.all()), 2)
