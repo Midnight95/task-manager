@@ -1,0 +1,12 @@
+{
+    "valid": {
+        "name": "unique label"
+    },
+    "invalid_empty_name": {
+        "name": ""
+    },
+    "invalid_non_unique_name" : {
+        "name": "bug"
+    }
+}
+
