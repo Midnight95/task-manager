@@ -11,7 +11,7 @@ from task_manager.myxini import LoginCheckMixin, DeletionProtectionMixin
 class LabelListView(LoginCheckMixin, ListView):
     model = Label
     template_name = 'label/label_list.html'
-    context_object_name = 'labeles'
+    context_object_name = 'labels'
     extra_context = {'title': _('Labeles')}
 
 
