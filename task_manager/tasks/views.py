@@ -25,14 +25,14 @@ class TaskPermissionMixin(UserPassesTestMixin):
 
 class TaskListView(LoginCheckMixin, ListView):
     model = Task
-    template_name = 'task/tasks.html'
+    template_name = 'tasks/tasks.html'
     context_object_name = 'tasks'
     extra_context = {'title': _('Task list')}
 
 
 class TaskView(LoginCheckMixin, DeleteView):
     model = Task
-    template_name = 'task/task_detail.html'
+    template_name = 'tasks/task_detail.html'
     context_object_name = 'task'
     extra_context = {'title': _('Task view')}
 
@@ -73,4 +73,4 @@ class TaskDeleteView(
         'title': _('Delete task'),
         'button_text': _('Delete')
     }
-    success_url = reverse_lazy('task_list')
+    success_url = reverse_lazy('tasks')

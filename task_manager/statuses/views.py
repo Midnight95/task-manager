@@ -10,7 +10,7 @@ from task_manager.myxini import LoginCheckMixin, DeletionProtectionMixin
 
 class StatusListView(LoginCheckMixin, ListView):
     model = Status
-    template_name = 'status/statuses.html'
+    template_name = 'statuses/statuses.html'
     context_object_name = 'statuses'
     extra_context = {'title': _('Statuses')}
 

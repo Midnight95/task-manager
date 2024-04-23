@@ -10,13 +10,13 @@ class TestTaskCRUD(TaskTestCase):
         self.client.force_login(self.user)
 
     def test_task_authorized(self):
-        response = self.client.get(reverse_lazy('task_list'))
+        response = self.client.get(reverse_lazy('tasks'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='task/task_list.html')
+        self.assertTemplateUsed(response, template_name='tasks/tasks.html')
 
     def test_task_unathorized(self):
         self.client.logout()
-        response = self.client.get(reverse_lazy('task_list'))
+        response = self.client.get(reverse_lazy('tasks'))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('home'))
 
@@ -27,7 +27,7 @@ class TestTaskCRUD(TaskTestCase):
                 data=data,
                 )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('task_list'))
+        self.assertRedirects(response, reverse_lazy('tasks'))
         self.assertEqual(len(Task.objects.all()), 4)
 
     def test_task_creation_unautorized(self):
@@ -74,5 +74,5 @@ class TestTaskCRUD(TaskTestCase):
                 reverse_lazy('task_delete', kwargs={'pk': 1})
                 )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('task_list'))
+        self.assertRedirects(response, reverse_lazy('tasks'))
         self.assertEqual(len(Task.objects.all()), 2)

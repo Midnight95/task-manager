@@ -3,7 +3,7 @@ import json
 
 
 class TaskTestCase(TestCase):
-    fixtures = ['user_objects', 'status_objects', 'task_objects']
+    fixtures = ['users', 'statuses', 'tasks']
 
-    with open('task_manager/fixtures/task_test_data.json') as file:
+    with open('task_manager/fixtures/tasks_data.json') as file:
         task_test_data = json.loads(file.read())

@@ -6,7 +6,7 @@ urlpatterns = [
         path(
             '',
             views.LabelListView.as_view(),
-            name='label_list'
+            name='labels'
             ),
         path(
             'create/',

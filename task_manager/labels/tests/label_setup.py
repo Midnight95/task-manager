@@ -3,7 +3,7 @@ import json
 
 
 class LabelTestCase(TestCase):
-    fixtures = ['user_objects', 'label_objects']
+    fixtures = ['users', 'labels']
 
-    with open('task_manager/fixtures/label_test_data.json') as file:
-        status_data = json.loads(file.read())
+    with open('task_manager/fixtures/labels_data.json') as file:
+        label_data = json.loads(file.read())

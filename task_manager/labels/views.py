@@ -10,7 +10,7 @@ from task_manager.myxini import LoginCheckMixin, DeletionProtectionMixin
 
 class LabelListView(LoginCheckMixin, ListView):
     model = Label
-    template_name = 'label/label_list.html'
+    template_name = 'labels/labels.html'
     context_object_name = 'labels'
     extra_context = {'title': _('Labeles')}
 
@@ -23,7 +23,7 @@ class LabelCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
         'button_text': _('Create')
         }
     success_message = _('Label created successfully')
-    success_url = reverse_lazy('label_list')
+    success_url = reverse_lazy('labels')
 
 
 class LabelUpdateView(
@@ -39,7 +39,7 @@ class LabelUpdateView(
         'button_text': _('Submit'),
     }
     success_message = _('Label updated successfully')
-    success_url = reverse_lazy('label_list')
+    success_url = reverse_lazy('labels')
 
 
 class LabelDeleteView(
@@ -55,6 +55,6 @@ class LabelDeleteView(
             'title': _('Delete label'),
             'button_text': _('Delete label'),
             }
-    success_url = reverse_lazy('label_list')
-    protected_url = reverse_lazy('label_list')
+    success_url = reverse_lazy('labels')
+    protected_url = success_url
     protected_message = _('Can\t delete linked label')

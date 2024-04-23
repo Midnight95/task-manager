@@ -10,17 +10,17 @@ class TestLabelCRUD(LabelTestCase):
         self.client.force_login(user)
 
     def test_label_page(self):
-        response = self.client.get(reverse_lazy('label_list'))
-        self.assertEqual(response.label_code, 200)
+        response = self.client.get(reverse_lazy('labels'))
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
-                response, template_name='label/label_list.html'
+                response, template_name='labels/labels.html'
                 )
 
     def test_label_page_unlogged(self):
         self.client.logout()
 
-        response = self.client.get(reverse_lazy('label_list'))
-        self.assertEqual(response.label_code, 302)
+        response = self.client.get(reverse_lazy('labels'))
+        self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('home'))
 
     def test_label_creation(self):
@@ -29,16 +29,16 @@ class TestLabelCRUD(LabelTestCase):
                 reverse_lazy('label_create'),
                 data=data,
                 )
-        self.assertEqual(response.label_code, 302)
-        self.assertRedirects(response, reverse_lazy('label_list'))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('labels'))
         self.assertEqual(len(Label.objects.all()), 5)
 
     def test_label_deletion(self):
         response = self.client.post(
                 reverse_lazy('label_delete', kwargs={'pk': 1})
                 )
-        self.assertEqual(response.label_code, 302)
-        self.assertRedirects(response, reverse_lazy('label_list'))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('labels'))
         self.assertEqual(len(Label.objects.all()), 3)
 
     def test_label_update(self):
@@ -48,5 +48,5 @@ class TestLabelCRUD(LabelTestCase):
                 data=data,
                 follow=True
                 )
-        self.assertEqual(response.label_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'updated')

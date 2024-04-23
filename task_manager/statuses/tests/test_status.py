@@ -13,7 +13,7 @@ class TestStatusCRUD(StatusTestCase):
         response = self.client.get(reverse_lazy('statuses'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
-                response, template_name='statuses/status_list.html'
+                response, template_name='statuses/statuses.html'
                 )
 
     def test_status_page_unlogged(self):
