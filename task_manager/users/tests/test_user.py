@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from task_manager.user.models import User
+from task_manager.users.models import User
 from .user_setup import UserTestCase
 
 
@@ -92,9 +92,9 @@ class TestUserUpdate(UserTestCase):
            )
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, expected_url=reverse_lazy('user_list'))
+        self.assertRedirects(response, expected_url=reverse_lazy('users'))
 
-        response = self.client.get(reverse_lazy('user_list'))
+        response = self.client.get(reverse_lazy('users'))
         self.assertContains(response, data['username'])
 
     def test_update_wrong_user(self):
@@ -110,7 +110,7 @@ class TestUserUpdate(UserTestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, expected_url=reverse_lazy('home'))
 
-        response = self.client.get(reverse_lazy('user_list'))
+        response = self.client.get(reverse_lazy('users'))
         self.assertNotContains(response, data['username'])
 
     def test_update_not_logged_in(self):
@@ -124,7 +124,7 @@ class TestUserUpdate(UserTestCase):
         self.assertRedirects(response, expected_url=reverse_lazy('home'))
 
         self.assertNotContains(
-            self.client.get(reverse_lazy('user_list')),
+            self.client.get(reverse_lazy('users')),
             data['username']
             )
 
@@ -138,9 +138,9 @@ class TestUserDeletion(UserTestCase):
             reverse_lazy('delete_user', kwargs={'pk': 1})
         )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, expected_url=reverse_lazy('user_list'))
+        self.assertRedirects(response, expected_url=reverse_lazy('users'))
         self.assertNotContains(
-            self.client.get(reverse_lazy('user_list')),
+            self.client.get(reverse_lazy('users')),
             user.username
         )
 
@@ -153,7 +153,7 @@ class TestUserDeletion(UserTestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, expected_url=reverse_lazy('home'))
         self.assertContains(
-            self.client.get(reverse_lazy('user_list')),
+            self.client.get(reverse_lazy('users')),
             user.username
         )
 
@@ -165,6 +165,6 @@ class TestUserDeletion(UserTestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, expected_url=reverse_lazy('home'))
         self.assertContains(
-            self.client.get(reverse_lazy('user_list')),
+            self.client.get(reverse_lazy('users')),
             user.username
         )

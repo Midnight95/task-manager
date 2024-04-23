@@ -1,33 +1,33 @@
 [
 {
-    "model": "label.label",
+    "model": "statuses.status",
     "pk": 1,
     "fields": {
-        "name": "bug",
+        "name": "new",
         "created_at": "2024-04-17T07:53:47.863Z"
     }
 },
 {
-    "model": "label.label",
+    "model": "statuses.status",
     "pk": 2,
     "fields": {
-        "name": "help wanted",
+        "name": "in progress",
         "created_at": "2024-04-17T07:53:58.079Z"
     }
 },
 {
-    "model": "label.label",
+    "model": "statuses.status",
     "pk": 3,
     "fields": {
-        "name": "invalid",
+        "name": "review",
         "created_at": "2024-04-17T07:54:09.350Z"
     }
 },
 {
-    "model": "label.label",
+    "model": "statuses.status",
     "pk": 4,
     "fields": {
-        "name": "question",
+        "name": "closed",
         "created_at": "2024-04-17T07:55:22.703Z"
     }
 }

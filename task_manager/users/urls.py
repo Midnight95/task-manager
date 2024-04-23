@@ -1,12 +1,12 @@
 from django.urls import path
 
-from task_manager.user import views
+from task_manager.users import views
 
 urlpatterns = [
         path(
             '',
             views.UserListView.as_view(),
-            name='user_list'
+            name='users'
             ),
         path(
             'create/',

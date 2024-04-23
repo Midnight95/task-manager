@@ -1,8 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from task_manager.user.models import User
-from task_manager.user.forms import UserForm
+from task_manager.users.models import User
+from task_manager.users.forms import UserForm
 from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -25,7 +25,7 @@ class UserPermissionMixin(UserPassesTestMixin):
 
 class UserListView(ListView):
     model = User
-    template_name = 'user/user_list.html'
+    template_name = 'users/users.html'
     context_object_name = 'users'
     extra_context = {'title': _('Users')}
 
@@ -50,7 +50,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView, SuccessMessageMixin):
         'button_text': _('Save changes')
         }
     success_message = _('User updated successfully')
-    success_url = reverse_lazy('user_list')
+    success_url = reverse_lazy('users')
 
 
 class UserDeleteView(DeletionProtectionMixin, UserPermissionMixin, DeleteView):
@@ -60,7 +60,7 @@ class UserDeleteView(DeletionProtectionMixin, UserPermissionMixin, DeleteView):
         'title': _('Delete user data'),
         'button_text': _('Delete user')
     }
-    success_url = reverse_lazy('user_list')
+    success_url = reverse_lazy('users')
 
     protected_message = _('Looks like this user has some unfinished tasks')
-    protected_url = reverse_lazy('user_list')
+    protected_url = reverse_lazy('users')

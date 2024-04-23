@@ -49,10 +49,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_bootstrap5',
     'task_manager',
-    'task_manager.user',
-    'task_manager.task',
-    'task_manager.status',
-    'task_manager.label'
+    'task_manager.users',
+    'task_manager.tasks',
+    'task_manager.statuses',
+    'task_manager.labels'
 ]
 
 MIDDLEWARE = [
@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

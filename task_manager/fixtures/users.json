@@ -1,6 +1,6 @@
 [
     {
-        "model": "user.user",
+        "model": "users.user",
         "pk": 1,
         "fields": {
             "password": "supersecurepassword",
@@ -12,7 +12,7 @@
             }
     }, 
     {
-        "model": "user.user",
+        "model": "users.user",
         "pk": 2,
         "fields": {
             "password": "supersecurepassword1",
@@ -24,7 +24,7 @@
             }
     },
     {
-        "model": "user.user",
+        "model": "users.user",
         "pk": 3,
         "fields": {
             "password": "superdupersecurepassword",
