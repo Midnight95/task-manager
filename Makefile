@@ -40,3 +40,7 @@ start:
 .PHONY: test
 test:
 	@$(MANAGE) test -v 2
+
+.PHONY: messages
+messages:
+	@$(MANAGE) makemessages --locale=ru
