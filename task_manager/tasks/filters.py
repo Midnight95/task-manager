@@ -4,6 +4,7 @@ from task_manager.statuses.models import Status
 from task_manager.users.models import User
 from task_manager.labels.models import Label
 from django.utils.translation import gettext as _
+from django import forms
 
 
 class TaskFilter(django_filters.FilterSet):
@@ -20,7 +21,8 @@ class TaskFilter(django_filters.FilterSet):
 
     labels = django_filters.ModelChoiceFilter(
         queryset = Label.objects.all(),
-        label = _('Label')
+        label = _('Label'),
+        widget = forms.CheckboxSelectMultiple
     )
 
     my_task = django_filters.BooleanFilter(
@@ -36,4 +38,4 @@ class TaskFilter(django_filters.FilterSet):
 
     class Meta:
         model = Task
-        fileds = ['status', 'executor', 'labels']
+        fields = ['status', 'executor', 'labels']
