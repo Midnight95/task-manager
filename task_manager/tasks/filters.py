@@ -22,19 +22,17 @@ class TaskFilter(django_filters.FilterSet):
     labels = django_filters.ModelChoiceFilter(
         queryset = Label.objects.all(),
         label = _('Label'),
-        widget = forms.CheckboxSelectMultiple
     )
 
     my_task = django_filters.BooleanFilter(
         method = 'lookup_my_task',
         label = 'Only my tasks',
+        widget = forms.CheckboxInput
     )
 
     def lookup_my_task(self, queryset, name, value):
         lookup = self.request.user
         return queryset.filter(author=lookup)
-
-
 
     class Meta:
         model = Task

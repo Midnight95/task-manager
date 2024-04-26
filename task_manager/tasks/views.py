@@ -1,7 +1,7 @@
 from task_manager.tasks.models import Task
 from task_manager.tasks.forms import TaskForm
+from task_manager.tasks.filters import TaskFilter
 from django.urls import reverse_lazy
-from django.views.generic.list import ListView
 from django.utils.translation import gettext as _
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -9,6 +9,7 @@ from task_manager.myxini import LoginCheckMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib import messages
 from django.shortcuts import redirect
+from django_filters.views import FilterView
 
 
 class TaskPermissionMixin(UserPassesTestMixin):
@@ -23,11 +24,14 @@ class TaskPermissionMixin(UserPassesTestMixin):
         return redirect(reverse_lazy('tasks'))
 
 
-class TaskListView(LoginCheckMixin, ListView):
+class TaskListView(LoginCheckMixin, FilterView):
     model = Task
     template_name = 'tasks/tasks.html'
     context_object_name = 'tasks'
-    extra_context = {'title': _('Task list')}
+    extra_context = {
+        'title': _('Task list'),
+        'button_text': _('Show')}
+    filterset_class = TaskFilter
 
 
 class TaskView(LoginCheckMixin, DeleteView):
