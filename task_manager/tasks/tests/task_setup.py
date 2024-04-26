@@ -1,7 +1,12 @@
-from django.test import TestCase
+from django.test import TestCase, modify_settings
 import json
 
 
+@modify_settings(
+    MIDDLEWARE={
+        'remove': 'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    }
+)
 class TaskTestCase(TestCase):
     fixtures = ['users', 'statuses', 'tasks']
 

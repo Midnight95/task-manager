@@ -1,7 +1,12 @@
-from django.test import TestCase
+from django.test import TestCase, modify_settings
 from django.urls import reverse_lazy
 
 
+@modify_settings(
+    MIDDLEWARE={
+        'remove': 'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    }
+)
 class TestIndex(TestCase):
     def setUp(self):
         self.response = self.client.get(reverse_lazy('home'))
