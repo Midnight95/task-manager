@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from os.path import join
+import dj_database_url
 
 load_dotenv()
 
@@ -33,7 +34,7 @@ DEBUG = True if os.getenv('DEBUG') == 'True' else False
 ALLOWED_HOSTS = [
     'webserver',
     '127.0.0.1',
-    'task-manager.granovskydev.ru'
+    '0.0.0.0'
     ]
 
 
@@ -92,13 +93,22 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default':
-        {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+if os.getenv('DATABASE') == 'PostgreSQL':
+        DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_URL'),
+            conn_max_age=600,
+            conn_health_checks=True
+        ),
+    }
+else:
+    DATABASES = {
+        'default':
+            {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+                }
             }
-        }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
