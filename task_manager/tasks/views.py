@@ -61,7 +61,7 @@ class TaskUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
     template_name = 'forms/form.html'
     extra_context = {
         'title': _('Change task'),
-        'button_text': _('Chage'),
+        'button_text': _('Change'),
     }
     success_message = _('Task updated successfully')
     success_url = reverse_lazy('tasks')
