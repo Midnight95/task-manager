@@ -61,7 +61,7 @@ class TaskUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
     template_name = 'forms/form.html'
     extra_context = {
         'title': _('Change task'),
-        'button_text': _('Submit'),
+        'button_text': _('Chage'),
     }
     success_message = _('Task updated successfully')
     success_url = reverse_lazy('tasks')
@@ -74,7 +74,7 @@ class TaskDeleteView(
     template_name = 'forms/delete.html'
     success_message = _('Task deleted successfully')
     extra_context = {
-        'title': _('Delete task'),
+        'title': _('Task deletion'),
         'button_text': _('Delete')
     }
     success_url = reverse_lazy('tasks')

@@ -47,7 +47,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView, SuccessMessageMixin):
     template_name = 'forms/form.html'
     extra_context = {
         'title': _('Update user data'),
-        'button_text': _('Save changes')
+        'button_text': _('Change')
         }
     success_message = _('User updated successfully')
     success_url = reverse_lazy('users')
@@ -57,8 +57,8 @@ class UserDeleteView(DeletionProtectionMixin, UserPermissionMixin, DeleteView):
     model = User
     template_name = 'forms/delete.html'
     extra_context = {
-        'title': _('Delete user data'),
-        'button_text': _('Delete user')
+        'title': _('User deletion'),
+        'button_text': _('Yes, delete')
     }
     success_url = reverse_lazy('users')
 

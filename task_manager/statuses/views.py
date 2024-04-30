@@ -36,7 +36,7 @@ class StatusUpdateView(
     template_name = 'forms/form.html'
     extra_context = {
         'title': _('Change status'),
-        'button_text': _('Submit'),
+        'button_text': _('Change'),
     }
     success_message = _('Status updated successfully')
     success_url = reverse_lazy('statuses')
@@ -52,8 +52,8 @@ class StatusDeleteView(
     template_name = 'forms/delete.html'
     success_message = _('Status deleted successfully')
     extra_context = {
-            'title': _('Delete status'),
-            'button_text': _('Delete status'),
+            'title': _('Status deletion'),
+            'button_text': _('Yes, delete'),
             }
     success_url = reverse_lazy('statuses')
     protected_url = success_url

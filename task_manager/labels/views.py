@@ -36,7 +36,7 @@ class LabelUpdateView(
     template_name = 'forms/form.html'
     extra_context = {
         'title': _('Change label'),
-        'button_text': _('Submit'),
+        'button_text': _('Change'),
     }
     success_message = _('Label updated successfully')
     success_url = reverse_lazy('labels')
@@ -52,8 +52,8 @@ class LabelDeleteView(
     template_name = 'forms/delete.html'
     success_message = _('Label deleted successfully')
     extra_context = {
-            'title': _('Delete label'),
-            'button_text': _('Delete label'),
+            'title': _('Label deletion'),
+            'button_text': _('Yes, delete'),
             }
     success_url = reverse_lazy('labels')
     protected_url = success_url
