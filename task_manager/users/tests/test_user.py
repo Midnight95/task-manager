@@ -7,7 +7,10 @@ class TestUserCreation(UserTestCase):
     def test_user_creation_url(self):
         response = self.client.get(reverse_lazy('user_create'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='users/user_sign_up_form.html')
+        self.assertTemplateUsed(
+                response,
+                template_name='users/user_sign_up_form.html'
+                )
 
     def test_valid_user_creation(self):
         data = self.test_data['create']['valid']
