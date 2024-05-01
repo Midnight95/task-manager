@@ -2,11 +2,11 @@
 {% block main %}
   {% load i18n django_bootstrap5 %}
     <div class="container col-12 col-md-10 col-lg-8 mx-auto">
-    <p class="h1">{{ title }}</p>
+    <p class="h1">{% trans 'Sign up' %}</p>
       <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        {% bootstrap_button button_type="submit" content=button_text %}
+        <button class="btn btn-primary" type="submit">{% trans 'Sign up' %}</button>
       </form>
     </div>
 {% endblock main %}

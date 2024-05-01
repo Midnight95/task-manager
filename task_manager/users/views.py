@@ -27,16 +27,11 @@ class UserListView(ListView):
     model = User
     template_name = 'users/users.html'
     context_object_name = 'users'
-    extra_context = {'title': _('Users')}
 
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Sign up'),
-        'button_text': _('Sign up')
-        }
+    template_name = 'users/user_sign_up_form.html'
     success_message = _('User created successfully')
     success_url = reverse_lazy('login')
 
@@ -44,22 +39,14 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 class UserUpdateView(UserPermissionMixin, UpdateView, SuccessMessageMixin):
     model = User
     form_class = UserForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Update user data'),
-        'button_text': _('Change')
-        }
+    template_name = 'users/user_update_form.html'
     success_message = _('User updated successfully')
     success_url = reverse_lazy('users')
 
 
 class UserDeleteView(DeletionProtectionMixin, UserPermissionMixin, DeleteView):
     model = User
-    template_name = 'forms/delete.html'
-    extra_context = {
-        'title': _('User deletion'),
-        'button_text': _('Yes, delete')
-    }
+    template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users')
 
     protected_message = _('Looks like this user has some unfinished tasks')
