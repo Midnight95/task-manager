@@ -10,7 +10,7 @@ packages = [
 repository = "https://github.com/Midnight95/python-project-52.git"
 
 [tool.poetry.dependencies]
-python = ">=3.11"
+python = ">=3.12.3"
 python-dotenv = "^1.0.0"
 Django = ">=5.0.4"
 gunicorn = "^21.2.0"
