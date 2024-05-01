@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.shortcuts import redirect
-from task_manager.myxini import DeletionProtectionMixin
+from task_manager.mixins import DeletionProtectionMixin
 
 
 class UserPermissionMixin(UserPassesTestMixin):

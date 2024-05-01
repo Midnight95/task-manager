@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from django.utils.translation import gettext as _
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.myxini import LoginCheckMixin, DeletionProtectionMixin
+from task_manager.mixins import LoginCheckMixin, DeletionProtectionMixin
 
 
 class StatusListView(LoginCheckMixin, ListView):
