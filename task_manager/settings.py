@@ -136,6 +136,8 @@ AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
+LANGUAGE_CODE = 'ru'
+
 LANGUAGES = (
         ('en-us', 'English (US)'),
         ('ru', 'Русский'),
@@ -146,8 +148,6 @@ LOCALE_PATHS = [
         ]
 
 FIXTURE_DIRS = ['task_manager/fixtures/']
-
-LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Moscow'
 

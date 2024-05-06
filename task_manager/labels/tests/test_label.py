@@ -49,4 +49,4 @@ class TestLabelCRUD(LabelTestCase):
                 follow=True
                 )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'updated')
+        self.assertContains(response, data['name'])
