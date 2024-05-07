@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 16:16+0300\n"
+"POT-Creation-Date: 2024-05-07 20:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,9 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/labels/views.py:15
-msgid "Labeles"
+#: task_manager/templates/components/header.html:31
+#: task_manager/templates/tasks/task_detail.html:31
+msgid "Labels"
 msgstr "Метки"
 
 #: task_manager/labels/views.py:22 task_manager/templates/labels/labels.html:8
@@ -144,7 +146,7 @@ msgstr "Имя пользователя"
 
 #: task_manager/tasks/views.py:48 task_manager/templates/tasks/tasks.html:9
 msgid "Create task"
-msgstr "Созать задачу"
+msgstr "Создать задачу"
 
 #: task_manager/tasks/views.py:63
 msgid "Change task"
@@ -196,11 +198,6 @@ msgstr "Регистрация"
 #: task_manager/templates/components/header.html:28
 msgid "Tasks"
 msgstr "Задачи"
-
-#: task_manager/templates/components/header.html:31
-#: task_manager/templates/tasks/task_detail.html:31
-msgid "Labels"
-msgstr "Метки"
 
 #: task_manager/templates/components/header.html:37
 msgid "Logout"
@@ -267,6 +264,24 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
+#: task_manager/users/models.py:10
+#, fuzzy
+#| msgid "User name"
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: task_manager/users/models.py:14
+#, fuzzy
+#| msgid "User name"
+msgid "First name"
+msgstr "Имя"
+
+#: task_manager/users/models.py:18
+#, fuzzy
+#| msgid "User name"
+msgid "Last name"
+msgstr "Фамилия"
+
 #: task_manager/users/views.py:17
 msgid "You can't chage other user!"
 msgstr "Полное имя"
@@ -290,6 +305,9 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:26
 msgid "You are logged out."
 msgstr "Вы разлогинены"
+
+#~ msgid "Labeles"
+#~ msgstr "Метки"
 
 #~ msgid "Task Manager"
 #~ msgstr "Менеджер задач"

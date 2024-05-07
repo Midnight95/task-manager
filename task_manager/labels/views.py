@@ -12,7 +12,7 @@ class LabelListView(LoginCheckMixin, ListView):
     model = Label
     template_name = 'labels/labels.html'
     context_object_name = 'labels'
-    extra_context = {'title': _('Labeles')}
+    extra_context = {'title': _('Labels')}
 
 
 class LabelCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
