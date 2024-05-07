@@ -9,7 +9,6 @@ from django.contrib import messages
 
 class IndexView(TemplateView):
     template_name = 'index.html'
-    extra_context = {'title': _('Task Manager')}
 
 
 class UserLoginView(SuccessMessageMixin, LoginView):
@@ -17,7 +16,6 @@ class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'forms/form.html'
     redirect_authenticated_user = True
     next_page = reverse_lazy('home')
-    extra_context = {'title': 'Sign in', 'button_text': 'Enter'}
     success_message = _('You have logged in!')
 
 
