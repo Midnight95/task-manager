@@ -235,7 +235,7 @@ msgstr "Изменить"
 
 #: task_manager/templates/login.html:9
 msgid "Enter"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/tasks/task_detail.html:14
 #: task_manager/templates/tasks/tasks.html:24
