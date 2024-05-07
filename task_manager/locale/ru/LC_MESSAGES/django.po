@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 01:02+0300\n"
+"POT-Creation-Date: 2024-05-07 16:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,6 +188,7 @@ msgid "Sing in"
 msgstr "Вход"
 
 #: task_manager/templates/components/header.html:21
+#: task_manager/templates/login.html:5
 #: task_manager/templates/users/user_sign_up_form.html:5
 #: task_manager/templates/users/user_sign_up_form.html:9
 msgid "Sign up"
@@ -202,7 +203,7 @@ msgstr "Задачи"
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/templates/components/header.html:35
+#: task_manager/templates/components/header.html:37
 msgid "Logout"
 msgstr "Выход"
 
@@ -231,6 +232,10 @@ msgstr "Дата создания"
 #: task_manager/templates/users/users.html:25
 msgid "Update"
 msgstr "Изменить"
+
+#: task_manager/templates/login.html:9
+msgid "Enter"
+msgstr "Вход"
 
 #: task_manager/templates/tasks/task_detail.html:14
 #: task_manager/templates/tasks/tasks.html:24
@@ -275,17 +280,16 @@ msgstr "Пользователь успешно изменен"
 msgid "Looks like this user has some unfinished tasks"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: task_manager/views.py:12
-msgid "Task Manager"
-msgstr "Менеджер задач"
-
-#: task_manager/views.py:21
+#: task_manager/views.py:19
 msgid "You have logged in!"
 msgstr "Вы залогинены"
 
-#: task_manager/views.py:28
+#: task_manager/views.py:26
 msgid "You are logged out."
 msgstr "Вы разлогинены"
+
+#~ msgid "Task Manager"
+#~ msgstr "Менеджер задач"
 
 #~ msgid "Update user data"
 #~ msgstr "Изменение пользователя"
