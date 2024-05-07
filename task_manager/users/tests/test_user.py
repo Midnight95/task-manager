@@ -39,7 +39,7 @@ class TestUserRead(UserTestCase):
     def test_user_login_url(self):
         response = self.client.get(reverse_lazy('login'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='forms/form.html')
+        self.assertTemplateUsed(response, template_name='login.html')
 
     def test_login(self):
         username = self.test_data['read']['login']['username']

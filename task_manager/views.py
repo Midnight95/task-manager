@@ -13,7 +13,7 @@ class IndexView(TemplateView):
 
 class UserLoginView(SuccessMessageMixin, LoginView):
     form_class = AuthenticationForm
-    template_name = 'forms/form.html'
+    template_name = 'login.html'
     redirect_authenticated_user = True
     next_page = reverse_lazy('home')
     success_message = _('You have logged in!')
