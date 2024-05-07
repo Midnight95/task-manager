@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-30 21:01+0300\n"
+"POT-Creation-Date: 2024-05-07 01:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,8 @@ msgid "Change label"
 msgstr "Изменение метки"
 
 #: task_manager/labels/views.py:39 task_manager/statuses/views.py:39
-#: task_manager/tasks/views.py:64 task_manager/users/views.py:50
+#: task_manager/tasks/views.py:64
+#: task_manager/templates/users/user_update_form.html:9
 #, fuzzy
 #| msgid "Change label"
 msgid "Change"
@@ -61,7 +62,7 @@ msgid "Label deletion"
 msgstr "Удаление метки"
 
 #: task_manager/labels/views.py:56 task_manager/statuses/views.py:56
-#: task_manager/users/views.py:61
+#: task_manager/templates/users/user_delete.html:9
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
@@ -69,7 +70,7 @@ msgstr "Да, удалить"
 msgid "Can\t delete linked label"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: task_manager/myxini.py:13
+#: task_manager/mixins.py:13
 msgid "You must log in to view this page"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
@@ -171,12 +172,14 @@ msgstr "Задачи"
 msgid "Delete"
 msgstr "Удалить"
 
+#: task_manager/templates/base.html:8
 #: task_manager/templates/components/header.html:4
+#: task_manager/templates/index.html:7
 msgid "Task manager"
 msgstr "Менеджер задач"
 
 #: task_manager/templates/components/header.html:11
-#: task_manager/users/views.py:30
+#: task_manager/templates/users/users.html:6
 msgid "Users"
 msgstr "Пользователи"
 
@@ -185,7 +188,8 @@ msgid "Sing in"
 msgstr "Вход"
 
 #: task_manager/templates/components/header.html:21
-#: task_manager/users/views.py:37 task_manager/users/views.py:38
+#: task_manager/templates/users/user_sign_up_form.html:5
+#: task_manager/templates/users/user_sign_up_form.html:9
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -203,6 +207,7 @@ msgid "Logout"
 msgstr "Выход"
 
 #: task_manager/templates/forms/delete.html:6
+#: task_manager/templates/users/user_delete.html:6
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
@@ -236,6 +241,16 @@ msgstr "Автор"
 msgid "Created"
 msgstr "Дата создания"
 
+#: task_manager/templates/users/user_delete.html:5
+msgid "User deletion"
+msgstr "Удаление пользователя"
+
+#: task_manager/templates/users/user_update_form.html:5
+#, fuzzy
+#| msgid "Change status"
+msgid "Change user"
+msgstr "Изменение статуса"
+
 #: task_manager/templates/users/users.html:11
 msgid "User name"
 msgstr "Имя пользователя"
@@ -248,23 +263,15 @@ msgstr "Полное имя"
 msgid "You can't chage other user!"
 msgstr "Полное имя"
 
-#: task_manager/users/views.py:40
+#: task_manager/users/views.py:35
 msgid "User created successfully"
 msgstr "Пользователь успешно создан"
 
-#: task_manager/users/views.py:49
-msgid "Update user data"
-msgstr "Изменение пользователя"
-
-#: task_manager/users/views.py:52
+#: task_manager/users/views.py:43
 msgid "User updated successfully"
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:60
-msgid "User deletion"
-msgstr "Удаление пользователя"
-
-#: task_manager/users/views.py:65
+#: task_manager/users/views.py:52
 msgid "Looks like this user has some unfinished tasks"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
@@ -279,6 +286,9 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:28
 msgid "You are logged out."
 msgstr "Вы разлогинены"
+
+#~ msgid "Update user data"
+#~ msgstr "Изменение пользователя"
 
 #~ msgid "Delete user data"
 #~ msgstr "Удаление пользователя"

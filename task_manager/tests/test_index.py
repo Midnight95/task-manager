@@ -15,7 +15,7 @@ class TestIndex(TestCase):
 
         self.assertEqual(self.response.status_code, 200)
         self.assertTemplateUsed(self.response, template_name='index.html')
-        self.assertContains(self.response, 'Task Manager')
+        self.assertContains(self.response, 'Task manager')
 
         self.assertContains(self.response, '/users/')
         self.assertContains(self.response, '/users/create/')
