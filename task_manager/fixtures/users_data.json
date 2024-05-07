@@ -1,7 +1,6 @@
 {
     "create": {
         "valid": {
-            "email": "useremail@usermail.com",
             "first_name": "Joseph",
             "last_name": "Stalin",
             "username": "Koba",
@@ -9,7 +8,6 @@
             "password2": "superdupersecurepassword"
         },
         "invalid_email": {
-            "email": "user1email@email.com",
             "first_name": "somefirstname",
             "last_name": "somelastname",
             "username": "somerandomusername",
@@ -17,7 +15,6 @@
             "password2": "superdupersecurepassword"
         },
         "invalid_username": {
-            "email": "somenotusedyetemail@mail.com",
             "first_name": "Ooga",
             "last_name": "Booga",
             "username": "user1",
@@ -27,7 +24,6 @@
     },
     "read": {
         "login": {
-            "email": "useremail@usermail.com",
             "first_name": "Joseph",
             "last_name": "Stalin",
             "username": "Koba",
@@ -40,7 +36,6 @@
 
     },
     "update": {
-        "email": "newuseremail@usermail.com",
         "first_name": "Joseph",
         "last_name": "Stalin",
         "username": "Koba",

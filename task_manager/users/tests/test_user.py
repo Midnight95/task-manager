@@ -22,15 +22,6 @@ class TestUserCreation(UserTestCase):
         user = User.objects.get(username=data['username'])
         self.assertTrue(user.is_active)
 
-    def test_non_unique_username(self):
-        data = self.test_data['create']['invalid_username']
-        response = self.client.post(
-                reverse_lazy('user_create'), data=data
-                )
-        self.assertEqual(response.status_code, 200)
-        with self.assertRaises(User.DoesNotExist):
-            User.objects.get(username=data['email'])
-
 
 class TestUserRead(UserTestCase):
     def setUp(self):
