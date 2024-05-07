@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 16:05+0300\n"
+"POT-Creation-Date: 2024-05-07 16:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,7 +188,6 @@ msgid "Sing in"
 msgstr "Вход"
 
 #: task_manager/templates/components/header.html:21
-#: task_manager/templates/login.html:5
 #: task_manager/templates/users/user_sign_up_form.html:5
 #: task_manager/templates/users/user_sign_up_form.html:9
 msgid "Sign up"
@@ -232,6 +231,12 @@ msgstr "Дата создания"
 #: task_manager/templates/users/users.html:25
 msgid "Update"
 msgstr "Изменить"
+
+#: task_manager/templates/login.html:5
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign in"
+msgstr "Вход"
 
 #: task_manager/templates/login.html:9
 msgid "Enter"

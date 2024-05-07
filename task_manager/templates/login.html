@@ -2,7 +2,7 @@
 {% block main %}
   {% load i18n django_bootstrap5 %}
     <div class="container col-12 col-md-10 col-lg-8 mx-auto">
-    <p class="h1">{% trans 'Sign up' %}</p>
+    <p class="h1">{% trans 'Sign in' %}</p>
       <form method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
