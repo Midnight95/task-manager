@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from task_manager.users.models import User
-from task_manager.users.forms import UserForm
+from task_manager.users.forms import UserForm, UserUpdateForm
 from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -38,7 +38,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
 class UserUpdateView(UserPermissionMixin, UpdateView, SuccessMessageMixin):
     model = User
-    form_class = UserForm
+    form_class = UserUpdateForm
     template_name = 'users/user_update_form.html'
     success_message = _('User updated successfully')
     success_url = reverse_lazy('users')
