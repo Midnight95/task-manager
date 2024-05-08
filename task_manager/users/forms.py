@@ -1,4 +1,3 @@
-from django import forms
 from task_manager.users.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -14,6 +13,7 @@ class UserForm(UserCreationForm):
                 'password1',
                 'password2'
                 ]
+
 
 class UserUpdateForm(UserForm):
     def clean_username(self):
