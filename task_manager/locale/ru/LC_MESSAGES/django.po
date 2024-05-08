@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-08 09:22+0300\n"
+"POT-Creation-Date: 2024-05-08 09:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,7 +191,6 @@ msgstr "Вход"
 
 #: task_manager/templates/components/header.html:21
 #: task_manager/templates/users/user_sign_up_form.html:5
-#: task_manager/templates/users/user_sign_up_form.html:9
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -249,6 +248,10 @@ msgstr "Дата создания"
 #: task_manager/templates/users/user_delete.html:5
 msgid "User deletion"
 msgstr "Удаление пользователя"
+
+#: task_manager/templates/users/user_sign_up_form.html:9
+msgid "Sign up!"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/users/user_update_form.html:5
 #, fuzzy
