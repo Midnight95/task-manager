@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 20:43+0300\n"
+"POT-Creation-Date: 2024-05-08 09:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,24 +264,6 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/users/models.py:10
-#, fuzzy
-#| msgid "User name"
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: task_manager/users/models.py:14
-#, fuzzy
-#| msgid "User name"
-msgid "First name"
-msgstr "Имя"
-
-#: task_manager/users/models.py:18
-#, fuzzy
-#| msgid "User name"
-msgid "Last name"
-msgstr "Фамилия"
-
 #: task_manager/users/views.py:17
 msgid "You can't chage other user!"
 msgstr "Полное имя"
@@ -305,6 +287,21 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:26
 msgid "You are logged out."
 msgstr "Вы разлогинены"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Username"
+#~ msgstr "Имя пользователя"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "First name"
+#~ msgstr "Имя"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Last name"
+#~ msgstr "Фамилия"
 
 #~ msgid "Labeles"
 #~ msgstr "Метки"
