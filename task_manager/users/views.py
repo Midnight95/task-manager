@@ -51,7 +51,7 @@ class UserDeleteView(
     DeleteView
 ):
     model = User
-    template_name = 'users/user_delete.html'
+    template_name = 'users/user_delete_form.html'
     success_url = reverse_lazy('users')
     success_message = _('User deleted successfully')
 
