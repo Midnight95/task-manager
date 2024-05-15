@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 17:19+0300\n"
+"POT-Creation-Date: 2024-05-15 23:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,6 +74,13 @@ msgstr "Невозможно удалить метку, потому что он
 #: task_manager/mixins.py:13
 msgid "You must log in to view this page"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/statuses/models.py:9
+#: task_manager/templates/labels/labels.html:12
+#: task_manager/templates/statuses/statuses.html:11
+#: task_manager/templates/tasks/tasks.html:22
+msgid "Name"
+msgstr "Имя"
 
 #: task_manager/statuses/views.py:15
 #: task_manager/templates/components/header.html:25
@@ -191,12 +198,6 @@ msgstr "Выход"
 #: task_manager/templates/users/user_delete_form.html:6
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
-
-#: task_manager/templates/labels/labels.html:12
-#: task_manager/templates/statuses/statuses.html:11
-#: task_manager/templates/tasks/tasks.html:22
-msgid "Name"
-msgstr "Имя"
 
 #: task_manager/templates/labels/labels.html:13
 #: task_manager/templates/statuses/statuses.html:12
