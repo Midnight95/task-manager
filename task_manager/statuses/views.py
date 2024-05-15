@@ -29,7 +29,7 @@ class StatusUpdateView(
         ):
     model = Status
     form_class = StatusForm
-    template_name = 'forms/form.html'
+    template_name = 'statuses/status_update_form.html'
     success_message = _('Status updated successfully')
     success_url = reverse_lazy('statuses')
 
