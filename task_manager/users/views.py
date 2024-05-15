@@ -44,10 +44,11 @@ class UserUpdateView(SuccessMessageMixin, UserPermissionMixin, UpdateView):
     success_url = reverse_lazy('users')
 
 
-class UserDeleteView(DeletionProtectionMixin, UserPermissionMixin, DeleteView):
+class UserDeleteView(SuccessMessageMixin, DeletionProtectionMixin, UserPermissionMixin, DeleteView):
     model = User
     template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users')
+    success_message = _('User deleted successfully')
 
     protected_message = _('Looks like this user has some unfinished tasks')
     protected_url = reverse_lazy('users')
