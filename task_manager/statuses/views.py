@@ -17,11 +17,7 @@ class StatusListView(LoginCheckMixin, ListView):
 
 class StatusCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
     form_class = StatusForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Create status'),
-        'button_text': _('Create')
-        }
+    template_name = 'statuses/status_create.html'
     success_message = _('Status created successfully')
     success_url = reverse_lazy('statuses')
 
@@ -34,10 +30,6 @@ class StatusUpdateView(
     model = Status
     form_class = StatusForm
     template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Change status'),
-        'button_text': _('Change'),
-    }
     success_message = _('Status updated successfully')
     success_url = reverse_lazy('statuses')
 
@@ -51,10 +43,6 @@ class StatusDeleteView(
     model = Status
     template_name = 'forms/delete.html'
     success_message = _('Status deleted successfully')
-    extra_context = {
-            'title': _('Status deletion'),
-            'button_text': _('Yes, delete'),
-            }
     success_url = reverse_lazy('statuses')
     protected_url = success_url
     protected_message = _('Can\t delete linked status')

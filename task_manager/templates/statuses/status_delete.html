@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+  {% load i18n django_bootstrap5 %}
+    <div class="container col-12 col-md-10 col-lg-8 mx-auto">
+    <p class="h1">{% trans 'Status deletion' %}</p>
+    <p>{% translate "Are you sure you want to delete" %} {{ object }}?</p>
+      <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">{% trans 'Yes, delete' %}</button>
+      </form>
+    </div>
+{% endblock main %}
