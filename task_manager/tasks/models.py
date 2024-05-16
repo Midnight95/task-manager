@@ -33,6 +33,8 @@ class Task(models.Model):
         User,
         on_delete=models.PROTECT,
         related_name='executor',
+        blank=True,
+        null=True,
         verbose_name=_('Executor')
         )
 
