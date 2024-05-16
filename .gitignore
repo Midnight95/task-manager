@@ -19,3 +19,8 @@ media
 
 # Visual Studio Code # 
 .vscode/* 
+
+# coverage
+.coverage
+coverage/
+coverage*

@@ -41,6 +41,10 @@ start:
 test:
 	@$(MANAGE) test -v 2
 
+.PHONY: coverage
+coverage:
+	@$(MANAGE) 
+
 .PHONY: messages
 messages:
 	@$(MANAGE) makemessages --locale=ru
