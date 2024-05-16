@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-16 11:43+0300\n"
+"POT-Creation-Date: 2024-05-16 12:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr "Невозможно удалить статус, потому что о
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:19 task_manager/tasks/models.py:36
+#: task_manager/tasks/filters.py:19 task_manager/tasks/models.py:38
 #: task_manager/templates/tasks/task_detail.html:18
 #: task_manager/templates/tasks/tasks.html:25
 msgid "Executor"
@@ -83,6 +83,10 @@ msgstr "Исполнитель"
 #: task_manager/tasks/filters.py:24
 msgid "Label"
 msgstr "Метка"
+
+#: task_manager/tasks/filters.py:29
+msgid "Only my tasks"
+msgstr "Только свои задачи"
 
 #: task_manager/tasks/models.py:16
 msgid "Description"
@@ -94,7 +98,7 @@ msgstr "Описание"
 msgid "Author"
 msgstr "Автор"
 
-#: task_manager/tasks/models.py:44
+#: task_manager/tasks/models.py:46
 #: task_manager/templates/components/header.html:31
 #: task_manager/templates/tasks/task_detail.html:31
 msgid "Labels"
@@ -195,7 +199,7 @@ msgstr "Дата создания"
 #: task_manager/templates/labels/labels.html:24
 #: task_manager/templates/statuses/statuses.html:23
 #: task_manager/templates/tasks/task_detail.html:42
-#: task_manager/templates/tasks/tasks.html:40
+#: task_manager/templates/tasks/tasks.html:44
 #: task_manager/templates/users/users.html:25
 msgid "Update"
 msgstr "Изменить"
@@ -203,7 +207,7 @@ msgstr "Изменить"
 #: task_manager/templates/labels/labels.html:26
 #: task_manager/templates/statuses/statuses.html:25
 #: task_manager/templates/tasks/task_detail.html:45
-#: task_manager/templates/tasks/tasks.html:42
+#: task_manager/templates/tasks/tasks.html:46
 #: task_manager/templates/users/users.html:27
 msgid "Delete"
 msgstr "Удалить"

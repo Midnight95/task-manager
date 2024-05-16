@@ -26,7 +26,7 @@ class TaskFilter(django_filters.FilterSet):
 
     my_task = django_filters.BooleanFilter(
         method='lookup_my_task',
-        label='Only my tasks',
+        label=_('Only my tasks'),
         widget=forms.CheckboxInput
     )
 
