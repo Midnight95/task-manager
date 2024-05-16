@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
     'webserver',
     '127.0.0.1',
     '0.0.0.0'
-    ]
+]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -139,13 +139,13 @@ AUTH_USER_MODEL = 'users.User'
 LANGUAGE_CODE = 'ru'
 
 LANGUAGES = (
-        ('en-us', 'English (US)'),
-        ('ru', 'Русский'),
-        )
+    ('en-us', 'English (US)'),
+    ('ru', 'Русский'),
+    )
 
 LOCALE_PATHS = [
-        join(BASE_DIR, 'task_manager', 'locale')
-        ]
+    join(BASE_DIR, 'task_manager', 'locale')
+]
 
 FIXTURE_DIRS = ['task_manager/fixtures/']
 

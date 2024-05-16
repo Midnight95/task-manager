@@ -13,8 +13,8 @@ class TestLabelCRUD(LabelTestCase):
         response = self.client.get(reverse_lazy('labels'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
-                response, template_name='labels/labels.html'
-                )
+            response, template_name='labels/labels.html'
+        )
 
     def test_label_page_unlogged(self):
         self.client.logout()
@@ -26,17 +26,17 @@ class TestLabelCRUD(LabelTestCase):
     def test_label_creation(self):
         data = self.label_data['valid']
         response = self.client.post(
-                reverse_lazy('label_create'),
-                data=data,
-                )
+            reverse_lazy('label_create'),
+            data=data,
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('labels'))
         self.assertEqual(len(Label.objects.all()), 5)
 
     def test_label_deletion(self):
         response = self.client.post(
-                reverse_lazy('label_delete', kwargs={'pk': 1})
-                )
+            reverse_lazy('label_delete', kwargs={'pk': 1})
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('labels'))
         self.assertEqual(len(Label.objects.all()), 3)
@@ -44,9 +44,9 @@ class TestLabelCRUD(LabelTestCase):
     def test_label_update(self):
         data = self.label_data['valid']
         response = self.client.post(
-                reverse_lazy('label_update', kwargs={'pk': 1}),
-                data=data,
-                follow=True
-                )
+            reverse_lazy('label_update', kwargs={'pk': 1}),
+            data=data,
+            follow=True
+        )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, data['name'])
