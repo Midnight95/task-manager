@@ -6,8 +6,15 @@ from django.utils.translation import gettext as _
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(blank=True)
+    name = models.CharField(
+        max_length=100,
+        unique=True,
+        verbose_name=_('Name'),
+        )
+    description = models.TextField(
+        blank=True,
+        verbose_name=_('Description')
+        )
 
     status = models.ForeignKey(
         Status,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-16 11:22+0300\n"
+"POT-Creation-Date: 2024-05-16 11:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/labels/models.py:9 task_manager/statuses/models.py:9
-#: task_manager/templates/labels/labels.html:12
+#: task_manager/tasks/models.py:12 task_manager/templates/labels/labels.html:12
 #: task_manager/templates/statuses/statuses.html:11
 #: task_manager/templates/tasks/tasks.html:22
 msgid "Name"
@@ -68,13 +68,13 @@ msgstr "Статус успешно удален"
 msgid "Can\t delete linked status"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/tasks/filters.py:14 task_manager/tasks/models.py:15
+#: task_manager/tasks/filters.py:14 task_manager/tasks/models.py:22
 #: task_manager/templates/tasks/task_detail.html:22
 #: task_manager/templates/tasks/tasks.html:23
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:19 task_manager/tasks/models.py:29
+#: task_manager/tasks/filters.py:19 task_manager/tasks/models.py:36
 #: task_manager/templates/tasks/task_detail.html:18
 #: task_manager/templates/tasks/tasks.html:25
 msgid "Executor"
@@ -84,13 +84,17 @@ msgstr "Исполнитель"
 msgid "Label"
 msgstr "Метка"
 
-#: task_manager/tasks/models.py:22
+#: task_manager/tasks/models.py:16
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/models.py:29
 #: task_manager/templates/tasks/task_detail.html:14
 #: task_manager/templates/tasks/tasks.html:24
 msgid "Author"
 msgstr "Автор"
 
-#: task_manager/tasks/models.py:37
+#: task_manager/tasks/models.py:44
 #: task_manager/templates/components/header.html:31
 #: task_manager/templates/tasks/task_detail.html:31
 msgid "Labels"
