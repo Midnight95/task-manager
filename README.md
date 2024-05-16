@@ -9,24 +9,44 @@
 
 Task Manager – a task management system similar to http://www.redmine.org/. 
 It allows setting tasks, assigning performers, and changing their statuses.
-To work with the system, registration and authentication are required.
-The deployed project can be viewed here:
+To work with the system, registration and authentication are required. Built with Django.
 
-https://python-project-52-c0k7.onrender.com/.
-
+The deployed project can be viewed [here](https://python-project-52-c0k7.onrender.com/)
 
 
-### Installation
 
-- Clone the repo and use Makefile- `make install` 
+## Getting Started
+**Prerequisites**
+Ensure you have Python installed on your machine. Also, in case of cloning the repo you'll need Poetry. This project uses Django, so familiarity with Django concepts is beneficial.
 
-or
+```
+git clone https://github.com/Midnight95/python-project-52.git
+cd python-project-52
+make install
+```
 
-- install package directly via `pip3 install git+https://github.com/Midnight95/python-project-52.git`
+**Run migrations**:
+```
+make migrate
+```
 
-To work properly this app needs env variables:
-- SECRET_KEY - django secret key. If you can't generate it by yoursel use this website - https://djecrety.ir/
+**Start the server**:
+```
+make start
+```
 
-Optionaly:
-- DEBUG - set to 'True', if you want to enable debug. 
-- DATABASE_URL - you need to specify URL to connect to PosgreSQL, otherwise app will create default SQLite database.
+**or**
+
+- Install package directly with `pip3 install git+https://github.com/Midnight95/python-project-52.git`.
+
+You're on your own when it comes to running the app in this case though.
+
+
+### Environment Variables
+Create .env file inside project directory with this variables:
+
+`SECRET_KEY`: Set your Django secret key. Generate one using [Djecrety](https://djecrety.ir/) if needed.
+
+`DEBUG`: Enable debugging by setting to True. Use False or leave empty for production.
+
+`DATABASE_URL`: Specify the connection string for your PostgreSQL database. Defaults to SQLite.
