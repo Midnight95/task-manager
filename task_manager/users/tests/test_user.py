@@ -72,8 +72,8 @@ class TestUserUpdate(UserTestCase):
         data = self.test_data['update']
 
         response = self.client.post(
-           reverse_lazy('update_user', kwargs={'pk': 1}),
-           data=data,
+            reverse_lazy('update_user', kwargs={'pk': 1}),
+            data=data,
         )
 
         self.assertEqual(response.status_code, 302)
@@ -88,8 +88,8 @@ class TestUserUpdate(UserTestCase):
         data = self.test_data['update']
 
         response = self.client.post(
-           reverse_lazy('update_user', kwargs={'pk': 2}),
-           data=data,
+            reverse_lazy('update_user', kwargs={'pk': 2}),
+            data=data,
         )
 
         self.assertEqual(response.status_code, 302)
@@ -101,8 +101,8 @@ class TestUserUpdate(UserTestCase):
     def test_update_not_logged_in(self):
         data = self.test_data['update']
         response = self.client.post(
-           reverse_lazy('update_user', kwargs={'pk': 1}),
-           data=data,
+            reverse_lazy('update_user', kwargs={'pk': 1}),
+            data=data,
         )
 
         self.assertEqual(response.status_code, 302)
