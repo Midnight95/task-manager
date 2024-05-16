@@ -23,9 +23,9 @@ class TestTaskCRUD(TaskTestCase):
     def test_task_creation(self):
         data = self.task_test_data['valid']
         response = self.client.post(
-                reverse_lazy('task_create'),
-                data=data,
-                )
+            reverse_lazy('task_create'),
+            data=data,
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('tasks'))
         self.assertEqual(len(Task.objects.all()), 4)
@@ -34,9 +34,9 @@ class TestTaskCRUD(TaskTestCase):
         self.client.logout()
         data = self.task_test_data['valid']
         response = self.client.post(
-                reverse_lazy('task_create'),
-                data=data,
-                )
+            reverse_lazy('task_create'),
+            data=data,
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('home'))
         self.assertEqual(len(Task.objects.all()), 3)
@@ -44,35 +44,35 @@ class TestTaskCRUD(TaskTestCase):
     def test_task_creation_non_unique(self):
         data = self.task_test_data['invalid_non_unique']
         response = self.client.post(
-                reverse_lazy('task_create'),
-                data=data,
-                )
+            reverse_lazy('task_create'),
+            data=data,
+        )
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(Task.objects.all()), 3)
 
     def test_task_creation_empy_name(self):
         data = self.task_test_data['invalid_empty_name']
         response = self.client.post(
-                reverse_lazy('task_create'),
-                data=data,
-                )
+            reverse_lazy('task_create'),
+            data=data,
+        )
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(Task.objects.all()), 3)
 
     def test_task_update(self):
         data = self.task_test_data['valid']
         response = self.client.post(
-                reverse_lazy('task_update', kwargs={'pk': 1}),
-                data=data,
-                follow=True
-                )
+            reverse_lazy('task_update', kwargs={'pk': 1}),
+            data=data,
+            follow=True
+        )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, data['name'])
 
     def test_task_deletion(self):
         response = self.client.post(
-                reverse_lazy('task_delete', kwargs={'pk': 1})
-                )
+            reverse_lazy('task_delete', kwargs={'pk': 1})
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('tasks'))
         self.assertEqual(len(Task.objects.all()), 2)

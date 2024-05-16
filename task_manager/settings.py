@@ -141,7 +141,7 @@ LANGUAGE_CODE = 'ru'
 LANGUAGES = (
     ('en-us', 'English (US)'),
     ('ru', 'Русский'),
-    )
+)
 
 LOCALE_PATHS = [
     join(BASE_DIR, 'task_manager', 'locale')

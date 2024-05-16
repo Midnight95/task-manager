@@ -25,7 +25,7 @@ class LabelUpdateView(
         LoginCheckMixin,
         SuccessMessageMixin,
         UpdateView
-        ):
+):
     model = Label
     form_class = LabelForm
     template_name = 'labels/label_update_form.html'
@@ -38,7 +38,7 @@ class LabelDeleteView(
         LoginCheckMixin,
         SuccessMessageMixin,
         DeleteView
-        ):
+):
     model = Label
     template_name = 'labels/label_delete_form.html'
     success_message = _('Label deleted successfully')

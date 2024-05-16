@@ -57,8 +57,11 @@ class TaskUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
 
 
 class TaskDeleteView(
-        TaskPermissionMixin, LoginCheckMixin, SuccessMessageMixin, DeleteView
-        ):
+        TaskPermissionMixin,
+        LoginCheckMixin,
+        SuccessMessageMixin,
+        DeleteView
+):
     model = Task
     template_name = 'tasks/task_delete_form.html'
     success_message = _('Task deleted successfully')

@@ -23,10 +23,10 @@ class StatusCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
 
 
 class StatusUpdateView(
-        LoginCheckMixin,
-        SuccessMessageMixin,
-        UpdateView
-        ):
+    LoginCheckMixin,
+    SuccessMessageMixin,
+    UpdateView
+):
     model = Status
     form_class = StatusForm
     template_name = 'statuses/status_update_form.html'
@@ -35,11 +35,11 @@ class StatusUpdateView(
 
 
 class StatusDeleteView(
-        DeletionProtectionMixin,
-        LoginCheckMixin,
-        SuccessMessageMixin,
-        DeleteView
-        ):
+    DeletionProtectionMixin,
+    LoginCheckMixin,
+    SuccessMessageMixin,
+    DeleteView
+):
     model = Status
     template_name = 'statuses/status_delete_form.html'
     success_message = _('Status deleted successfully')

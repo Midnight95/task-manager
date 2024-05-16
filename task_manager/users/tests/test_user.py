@@ -8,15 +8,15 @@ class TestUserCreation(UserTestCase):
         response = self.client.get(reverse_lazy('user_create'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
-                response,
-                template_name='users/user_sign_up_form.html'
-                )
+            response,
+            template_name='users/user_sign_up_form.html'
+        )
 
     def test_valid_user_creation(self):
         data = self.test_data['create']['valid']
         response = self.client.post(
-                reverse_lazy('user_create'), data=data
-                )
+            reverse_lazy('user_create'), data=data
+        )
         self.assertRedirects(response, expected_url=reverse_lazy('login'))
         self.assertEqual(response.status_code, 302)
         user = User.objects.get(username=data['username'])
@@ -36,10 +36,10 @@ class TestUserRead(UserTestCase):
         username = self.test_data['read']['login']['username']
         password = self.test_data['read']['login']['password']
         response = self.client.post(
-                reverse_lazy('login'),
-                data={'username': username, 'password': password},
-                follow=True
-                )
+            reverse_lazy('login'),
+            data={'username': username, 'password': password},
+            follow=True
+        )
 
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse_lazy('home'))
@@ -74,7 +74,7 @@ class TestUserUpdate(UserTestCase):
         response = self.client.post(
            reverse_lazy('update_user', kwargs={'pk': 1}),
            data=data,
-           )
+        )
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, expected_url=reverse_lazy('users'))
@@ -90,7 +90,7 @@ class TestUserUpdate(UserTestCase):
         response = self.client.post(
            reverse_lazy('update_user', kwargs={'pk': 2}),
            data=data,
-           )
+        )
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, expected_url=reverse_lazy('home'))
@@ -103,7 +103,7 @@ class TestUserUpdate(UserTestCase):
         response = self.client.post(
            reverse_lazy('update_user', kwargs={'pk': 1}),
            data=data,
-           )
+        )
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, expected_url=reverse_lazy('home'))
@@ -111,7 +111,7 @@ class TestUserUpdate(UserTestCase):
         self.assertNotContains(
             self.client.get(reverse_lazy('users')),
             data['username']
-            )
+        )
 
 
 class TestUserDeletion(UserTestCase):
