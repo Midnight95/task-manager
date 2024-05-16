@@ -4,7 +4,7 @@
   {% load django_bootstrap5 %}
 
   <div class="container"> 
-    <p class="h1">{{ title }}</p>
+    <p class="h1">{% translate 'Task list' %}</p>
     <table class="table table-dark">
         <a class="btn btn-primary mb-3" href="{% url 'task_create' %}">{% trans 'Create task' %}</a>
 
@@ -12,7 +12,7 @@
           <div class="card-body">
               <form class="form-inline center" method="get">
                 {% bootstrap_form filter.form %}
-                {% bootstrap_button button_type="submit" content=button_text %}
+                <button class="btn btn-primary" type="submit">{% trans 'Show' %}</button>
               </form>
           </div>
       </div>

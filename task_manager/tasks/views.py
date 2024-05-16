@@ -28,9 +28,6 @@ class TaskListView(LoginCheckMixin, FilterView):
     model = Task
     template_name = 'tasks/tasks.html'
     context_object_name = 'tasks'
-    extra_context = {
-        'title': _('Task list'),
-        'button_text': _('Show')}
     filterset_class = TaskFilter
 
 
@@ -38,17 +35,13 @@ class TaskView(LoginCheckMixin, DeleteView):
     model = Task
     template_name = 'tasks/task_detail.html'
     context_object_name = 'task'
-    extra_context = {'title': _('Task view')}
 
 
 class TaskCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
     form_class = TaskForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Create task'),
-        'button_text': _('Create')
-        }
+    template_name = 'tasks/task_create_form.html'
     success_url = reverse_lazy('tasks')
+    success_message = _('Task created successfully')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -58,11 +51,7 @@ class TaskCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
 class TaskUpdateView(LoginCheckMixin, SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Change task'),
-        'button_text': _('Change'),
-    }
+    template_name = 'tasks/task_update_form.html'
     success_message = _('Task updated successfully')
     success_url = reverse_lazy('tasks')
 
@@ -71,10 +60,6 @@ class TaskDeleteView(
         TaskPermissionMixin, LoginCheckMixin, SuccessMessageMixin, DeleteView
         ):
     model = Task
-    template_name = 'forms/delete.html'
+    template_name = 'tasks/task_delete_form.html'
     success_message = _('Task deleted successfully')
-    extra_context = {
-        'title': _('Task deletion'),
-        'button_text': _('Delete')
-    }
     success_url = reverse_lazy('tasks')
