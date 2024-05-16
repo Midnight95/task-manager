@@ -12,16 +12,11 @@ class LabelListView(LoginCheckMixin, ListView):
     model = Label
     template_name = 'labels/labels.html'
     context_object_name = 'labels'
-    extra_context = {'title': _('Labels')}
 
 
 class LabelCreateView(LoginCheckMixin, SuccessMessageMixin, CreateView):
     form_class = LabelForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Create label'),
-        'button_text': _('Create')
-        }
+    template_name = 'labels/label_create_form.html'
     success_message = _('Label created successfully')
     success_url = reverse_lazy('labels')
 
@@ -33,11 +28,7 @@ class LabelUpdateView(
         ):
     model = Label
     form_class = LabelForm
-    template_name = 'forms/form.html'
-    extra_context = {
-        'title': _('Change label'),
-        'button_text': _('Change'),
-    }
+    template_name = 'labels/label_update_form.html'
     success_message = _('Label updated successfully')
     success_url = reverse_lazy('labels')
 
@@ -49,12 +40,8 @@ class LabelDeleteView(
         DeleteView
         ):
     model = Label
-    template_name = 'forms/delete.html'
+    template_name = 'labels/label_delete_form.html'
     success_message = _('Label deleted successfully')
-    extra_context = {
-            'title': _('Label deletion'),
-            'button_text': _('Yes, delete'),
-            }
     success_url = reverse_lazy('labels')
     protected_url = success_url
     protected_message = _('Can\t delete linked label')

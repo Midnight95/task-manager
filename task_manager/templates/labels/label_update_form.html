@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+  {% load i18n django_bootstrap5 %}
+    <div class="container col-12 col-md-10 col-lg-8 mx-auto">
+    <p class="h1">{% trans 'Change label' %}</p>
+      <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-primary" type="submit">{% trans 'Change' %}</button>
+      </form>
+    </div>
+{% endblock main %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 23:38+0300\n"
+"POT-Creation-Date: 2024-05-16 10:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,54 +20,19 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/labels/views.py:15
-#: task_manager/templates/components/header.html:31
-#: task_manager/templates/tasks/task_detail.html:31
-msgid "Labels"
-msgstr "Метки"
-
-#: task_manager/labels/views.py:22 task_manager/templates/labels/labels.html:8
-msgid "Create label"
-msgstr "Создать метку"
-
-#: task_manager/labels/views.py:23 task_manager/tasks/views.py:49
-#: task_manager/templates/statuses/status_create_form.html:9
-msgid "Create"
-msgstr "Создать"
-
-#: task_manager/labels/views.py:25
+#: task_manager/labels/views.py:20
 msgid "Label created successfully"
 msgstr "Метка успешно создана"
 
-#: task_manager/labels/views.py:38
-msgid "Change label"
-msgstr "Изменение метки"
-
-#: task_manager/labels/views.py:39 task_manager/tasks/views.py:64
-#: task_manager/templates/statuses/status_update_form.html:9
-#: task_manager/templates/users/user_update_form.html:9
-msgid "Change"
-msgstr "Изменить"
-
-#: task_manager/labels/views.py:41
+#: task_manager/labels/views.py:32
 msgid "Label updated successfully"
 msgstr "Метка успешно изменена"
 
-#: task_manager/labels/views.py:53
+#: task_manager/labels/views.py:44
 msgid "Label deleted successfully"
 msgstr "Метка успешно удалена"
 
-#: task_manager/labels/views.py:55
-msgid "Label deletion"
-msgstr "Удаление метки"
-
-#: task_manager/labels/views.py:56
-#: task_manager/templates/statuses/status_delete.html:9
-#: task_manager/templates/users/user_delete_form.html:9
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
-#: task_manager/labels/views.py:60
+#: task_manager/labels/views.py:47
 msgid "Can\t delete linked label"
 msgstr "Невозможно удалить метку, потому что она используется"
 
@@ -139,9 +104,22 @@ msgstr "Имя пользователя"
 msgid "Create task"
 msgstr "Создать задачу"
 
+#: task_manager/tasks/views.py:49
+#: task_manager/templates/labels/label_create_form.html:9
+#: task_manager/templates/statuses/status_create_form.html:9
+msgid "Create"
+msgstr "Создать"
+
 #: task_manager/tasks/views.py:63
 msgid "Change task"
 msgstr "Изменение задачи"
+
+#: task_manager/tasks/views.py:64
+#: task_manager/templates/labels/label_update_form.html:9
+#: task_manager/templates/statuses/status_update_form.html:9
+#: task_manager/templates/users/user_update_form.html:9
+msgid "Change"
+msgstr "Изменить"
 
 #: task_manager/tasks/views.py:66
 msgid "Task updated successfully"
@@ -189,15 +167,40 @@ msgstr "Регистрация"
 msgid "Tasks"
 msgstr "Задачи"
 
+#: task_manager/templates/components/header.html:31
+#: task_manager/templates/tasks/task_detail.html:31
+msgid "Labels"
+msgstr "Метки"
+
 #: task_manager/templates/components/header.html:37
 msgid "Logout"
 msgstr "Выход"
 
 #: task_manager/templates/forms/delete.html:6
-#: task_manager/templates/statuses/status_delete.html:6
+#: task_manager/templates/labels/label_delete_form.html:6
+#: task_manager/templates/statuses/status_delete_form.html:6
 #: task_manager/templates/users/user_delete_form.html:6
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
+
+#: task_manager/templates/labels/label_create_form.html:5
+#: task_manager/templates/labels/labels.html:8
+msgid "Create label"
+msgstr "Создать метку"
+
+#: task_manager/templates/labels/label_delete_form.html:5
+msgid "Label deletion"
+msgstr "Удаление метки"
+
+#: task_manager/templates/labels/label_delete_form.html:9
+#: task_manager/templates/statuses/status_delete_form.html:9
+#: task_manager/templates/users/user_delete_form.html:9
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: task_manager/templates/labels/label_update_form.html:5
+msgid "Change label"
+msgstr "Изменение метки"
 
 #: task_manager/templates/labels/labels.html:13
 #: task_manager/templates/statuses/statuses.html:12
@@ -227,7 +230,7 @@ msgstr "Войти"
 msgid "Create status"
 msgstr "Создать статус"
 
-#: task_manager/templates/statuses/status_delete.html:5
+#: task_manager/templates/statuses/status_delete_form.html:5
 msgid "Status deletion"
 msgstr "Удаление статуса"
 
