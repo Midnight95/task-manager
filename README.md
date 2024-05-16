@@ -7,23 +7,26 @@
 
 ## Task manager
 
-Task Manager – система управления задачами, подобная http://www.redmine.org/. Она позволяет ставить задачи, назначать исполнителей и менять их статусы. Для работы с системой требуется регистрация и аутентификация. Развернутый проект можно посмотреть тут:
-https://python-project-52-c0k7.onrender.com/
+Task Manager – a task management system similar to http://www.redmine.org/. 
+It allows setting tasks, assigning performers, and changing their statuses.
+To work with the system, registration and authentication are required.
+The deployed project can be viewed here:
+
+https://python-project-52-c0k7.onrender.com/.
 
 
 
-### Установка
+### Installation
 
-- Клонируйте репозиторий и используйте Makefile - `make install` 
+- Clone the repo and use Makefile- `make install` 
 
-или
+or
 
-- Устновите пакет напрямую из репозитория при помощи `pip3 install git+https://github.com/Midnight95/python-project-52.git`
+- install package directly via `pip3 install git+https://github.com/Midnight95/python-project-52.git`
 
-Для работы приложения необходимы следующие переменные окружения:
-- SECRET_KEY - django secret key. Если не сможете самостоятельно сгенерировать - https://djecrety.ir/
+To work properly this app needs env variables:
+- SECRET_KEY - django secret key. If you can't generate it by yoursel use this website - https://djecrety.ir/
 
-Опционально:
-- DEBUG - True для включения дебага
-- DATABASE_URL - необходимо указать URL для подключения к PosgreSQL, в противном случае будет использоваться SQLite
-- Возможно понадобиться указать DJANGO_SETTINGS_MODULE=task_manager.settings для корректной работы приложения
+Optionaly:
+- DEBUG - set to 'True', if you want to enable debug. 
+- DATABASE_URL - you need to specify URL to connect to PosgreSQL, otherwise app will create default SQLite database.
