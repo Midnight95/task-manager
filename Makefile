@@ -1,10 +1,6 @@
 MANAGE := poetry run python manage.py
 PORT ?= 8080
 
-.PHONY: test
-test:
-	@poetry run pytest
-
 .PHONY: setup
 setup: db-clean install migrate
 
